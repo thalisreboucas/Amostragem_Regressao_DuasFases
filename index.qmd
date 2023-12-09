@@ -1,0 +1,86 @@
+---
+title: "Dirichlet distribution"
+author: "Thalis Rebouças e Wesley"
+date: "13 Dezembro 2023"
+format: 
+  revealjs:
+    logo: "images/logo.png"
+    width: 1600
+    height: 900
+    self-contained: false
+    incremental: false
+    footer: "Slides por Thalis e Wesley, feito em [Quarto](https://quarto.org/docs/presentations/revealjs/index.html). Código disponível [no GitHub](https://github.com/thalisreboucas/)."
+    theme: ["custom.scss"]
+    slide-number: c/t
+    show-slide-number: all
+    hash-type: number
+    preview-links: false
+---
+
+## Sumário de aprendizagem
+
+Vamos explicar um pouco sobre
+
+⬜ Introdução sobre a distribuição
+
+⬜ Fundamentos da distribuição de Dirichlet
+
+⬜ Propriedades e aplicações
+
+⬜ Estimação de parâmentros
+
+⬜ Exemplo prático
+
+⬜ Referência
+
+
+# Vamos lá!
+
+## Introdução
+
+A distribuição de Dirichlet possui várias propriedades interessantes, como invariância sob transformações afins, propriedade de conjugação e propriedade de marginalização. Ela também é amplamente utilizada em problemas envolvendo inferência bayesiana, misturas de distribuições e análise de dados composicionais.
+
+- Em resumo, a distribuição de Dirichlet é uma ferramenta estatística fundamental para modelar proporções e é amplamente aplicada em diversas áreas, como biologia, economia, ciências sociais e engenharia.
+
+## Fundamentos da distribuição de Dirichlet:
+
+Descreva a origem e o conceito da distribuição de Dirichlet.
+
+Explique os parâmetros da distribuição, como o vetor de parâmetros e o parâmetro de concentração.
+
+Demonstre a função de densidade de probabilidade da distribuição de Dirichlet.
+
+## Propriedades e aplicações:
+
+Discuta as principais propriedades da distribuição de Dirichlet, como a invariância e a conexão com a distribuição Beta.
+
+Apresente exemplos de aplicações da distribuição de Dirichlet em diferentes áreas, como modelagem de misturas, análise de sentimento e processamento de imagem.
+
+## Estimação de parâmetros:
+
+Descreva os métodos de estimação de parâmetros para a distribuição de Dirichlet, como o método de máxima verossimilhança e o método de Bayesian inference.
+
+Explique como selecionar a melhor abordagem de estimação de acordo com o contexto da análise.
+
+## Exemplo prático:
+
+Apresente um exemplo prático de aplicação da distribuição de Dirichlet.
+
+Descreva a coleta de dados e como eles são ajustados à distribuição de Dirichlet.
+
+Mostre os resultados da análise e interprete-os.
+
+
+# Referências 
+
+- Paula, G. A. (2013). Modelos de regressão com apoio computacional. IME-USP, São Paulo.
+
+- Winkelmann, R. (2008). Econometric analysis of count data (5th Ed.). Springer Science & Business Media.
+
+- CONSUL, P. C
+Generalized Poisson Distributions: Properties and Applications. Statistics: Textbooks and Monographs,
+New York: Marcel Dekker Inc. 1989.
+
+- Long, J. Scott. 1990. The origins of sex differences in science. Social Forces. 68(3):1297-1316.
+
+- Long, J. Scott. 1997. Regression Models for Categorical and Limited Dependent Variables. Thousand Oaks, California: Sage.
