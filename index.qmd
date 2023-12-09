@@ -120,7 +120,6 @@ Origem: conversa com o Bing, 09/12/2023
 ## Exemplo prático:
 ```{r}
 # Instalando e carregando a biblioteca necessária
-install.packages("topicmodels")
 library(topicmodels)
 
 # Carregando os dados

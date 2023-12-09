@@ -361,25 +361,63 @@ Thalis Rebouças e Wesley
 </section>
 <section class="slide level2">
 <h2>Fundamentos da distribuição de Dirichlet:</h2>
-<p>Descreva a origem e o conceito da distribuição de Dirichlet.</p>
-<p>Explique os parâmetros da distribuição, como o vetor de parâmetros e o parâmetro de concentração.</p>
-<p>Demonstre a função de densidade de probabilidade da distribuição de Dirichlet.</p>
+<h3>Origem e conceito:</h3>
+<p>A <strong>Distribuição de Dirichlet</strong>, nomeada em homenagem a Johann Peter Gustav Lejeune Dirichlet, é uma distribuição discreta multivariada com um parâmetro vetorial não-negativo e real, frequentemente representada por Dir(α)¹²³.</p>
+<p>Na análise Bayesiana, a distribuição de Dirichlet é usada como a distribuição conjugada da distribuição multinomial. Ou seja, se a distribuição a priori é uma distribuição de Dirichlet e a variável observada é uma multinomial, então a distribuição a posteriori será uma distribuição de Dirichlet (com outro parâmetro)¹.</p>
+<h3>Parâmetros da distribuição:</h3>
+<p>O vetor de parâmetros α é um vetor não-negativo e real que define a distribuição. O parâmetro de concentração é um número real positivo que especifica quão concentrada ou dispersa é a distribuição⁴.</p>
+<h3>Função de densidade</h3>
+<p>A função de densidade de probabilidade da distribuição de Dirichlet é dada por¹:</p>
+<p><span class="math display">\[
+f(x_1, ..., x_K; α_1, ..., α_K) = \frac{1}{B(α)} \prod_{i=1}^{K} x_i^{α_i - 1}
+\]</span></p>
+<p>onde <span class="math inline">\(x_i\)</span> são as variáveis aleatórias, <span class="math inline">\(α_i\)</span> são os parâmetros da distribuição, e <span class="math inline">\(B(α)\)</span> é a função beta multinomial, que pode ser expressa em termos da função gama¹.</p>
+<ol type="1">
+<li>Distribuição de Dirichlet – Wikipédia, a enciclopédia livre. https://pt.wikipedia.org/wiki/Distribui%C3%A7%C3%A3o_de_Dirichlet.</li>
+<li>Distribuição de Dirichlet - Wikiwand. https://www.wikiwand.com/pt/Distribui%C3%A7%C3%A3o_de_Dirichlet.</li>
+<li>Distribuição de Dirichlet - Thinkfn. https://thinkfn.com/wikibolsa/Distribui%C3%A7%C3%A3o_de_Dirichlet.</li>
+<li>Processo de Dirichlet – Wikipédia, a enciclopédia livre. https://pt.wikipedia.org/wiki/Processo_de_Dirichlet.</li>
+<li>Definição e significado de Distribuição de Dirichlet. https://bing.com/search?q=Par%c3%a2metros+da+distribui%c3%a7%c3%a3o+de+Dirichlet.</li>
+<li>Distribuição e Densidade de Probabilidade - Moodle USP: e-Disciplinas. https://edisciplinas.usp.br/mod/resource/view.php?id=652426.</li>
+<li>Função de densidade de probabilidade - Wikiwand. https://www.wikiwand.com/pt/Fun%C3%A7%C3%A3o_de_densidade_de_probabilidade.</li>
+<li>Métodos e fórmulas para Distribuições de probabilidades. https://support.minitab.com/pt-br/minitab/20/help-and-how-to/probability-distributions-random-data-and-resampling-analyses/how-to/probability-distributions/methods-and-formulas/methods-and-formulas/.</li>
+</ol>
 </section>
 <section class="slide level2">
 <h2>Propriedades e aplicações:</h2>
-<p>Discuta as principais propriedades da distribuição de Dirichlet, como a invariância e a conexão com a distribuição Beta.</p>
-<p>Apresente exemplos de aplicações da distribuição de Dirichlet em diferentes áreas, como modelagem de misturas, análise de sentimento e processamento de imagem.</p>
+<p>A distribuição de Dirichlet tem várias propriedades importantes¹:</p>
+<ol type="1">
+<li><strong>Invariância</strong>: A distribuição de Dirichlet é invariante sob permutações das variáveis. Isso significa que se você trocar a ordem das variáveis, a distribuição permanecerá a mesma¹.</li>
+<li><strong>Conexão com a distribuição Beta</strong>: A distribuição de Dirichlet é uma generalização da distribuição Beta para o caso multivariado. De fato, se você integrar uma distribuição de Dirichlet sobre todas as variáveis, exceto uma, você obterá uma distribuição Beta¹.</li>
+</ol>
+<p>A distribuição de Dirichlet tem várias aplicações em diferentes áreas:</p>
+<ol type="1">
+<li><strong>Modelagem de Misturas</strong>: A distribuição de Dirichlet é frequentemente usada como uma distribuição a priori em modelos de mistura infinita⁵. Nesse contexto, a distribuição de Dirichlet permite modelar a incerteza sobre a proporção de diferentes componentes em uma mistura.</li>
+<li><strong>Análise de Sentimento</strong>: Na análise de sentimento, a distribuição de Dirichlet pode ser usada para modelar a incerteza sobre a proporção de diferentes sentimentos em um texto⁶.</li>
+<li><strong>Processamento de Imagem</strong>: No processamento de imagem, a distribuição de Dirichlet pode ser usada para modelar a incerteza sobre a proporção de diferentes cores ou texturas em uma imagem⁶.</li>
+</ol>
+<p>Essas são apenas algumas das muitas aplicações da distribuição de Dirichlet. Ela é uma ferramenta poderosa e flexível que pode ser usada em muitos contextos diferentes onde há incerteza sobre proporções.</p>
+<p>Origem: conversa com o Bing, 09/12/2023 (1) Distribuição de Dirichlet – Wikipédia, a enciclopédia livre. https://pt.wikipedia.org/wiki/Distribui%C3%A7%C3%A3o_de_Dirichlet. (2) Processo de Dirichlet – Wikipédia, a enciclopédia livre. https://pt.wikipedia.org/wiki/Processo_de_Dirichlet. (3) O que é Latent Dirichlet Allocation (LDA - Alocação Latente de …. https://glossario.maiconramos.com/glossario/o-que-e-latent-dirichlet-allocation-lda-alocacao-latente-de-dirichlet-2/. (4) Distribuição de Dirichlet - Wikiwand. https://www.wikiwand.com/pt/Distribui%C3%A7%C3%A3o_de_Dirichlet. (5) Teorema de Dirichlet sobre progressões aritméticas. https://pt.wikipedia.org/wiki/Teorema_de_Dirichlet_sobre_progress%C3%B5es_aritm%C3%A9ticas. (6) O que é Condição Fronteira Dirichlet - Thermal Engineering. https://www.thermal-engineering.org/pt-br/o-que-e-condicao-fronteira-dirichlet-condicao-fronteira-tipo-i-definicao/. (7) Johann Peter Gustav Lejeune Dirichlet – Wikipédia, a enciclopédia livre. https://pt.wikipedia.org/wiki/Johann_Peter_Gustav_Lejeune_Dirichlet.</p>
 </section>
 <section class="slide level2">
 <h2>Estimação de parâmetros:</h2>
-<p>Descreva os métodos de estimação de parâmetros para a distribuição de Dirichlet, como o método de máxima verossimilhança e o método de Bayesian inference.</p>
-<p>Explique como selecionar a melhor abordagem de estimação de acordo com o contexto da análise.</p>
+<p>Existem vários métodos para estimar os parâmetros da distribuição de Dirichlet, incluindo o método de máxima verossimilhança e a inferência Bayesiana¹².</p>
+<ol type="1">
+<li><p><strong>Método de Máxima Verossimilhança (MLE)</strong>: Este método procura encontrar os parâmetros que maximizam a função de verossimilhança, que é a probabilidade dos dados observados dados os parâmetros. Para a distribuição de Dirichlet, este método pode ser complexo devido à natureza multivariada da distribuição².</p></li>
+<li><p><strong>Inferência Bayesiana</strong>: Na inferência Bayesiana, usamos uma distribuição a priori para os parâmetros e atualizamos essa distribuição com os dados observados para obter uma distribuição a posteriori. A distribuição de Dirichlet é a distribuição conjugada da distribuição multinomial, o que significa que se a distribuição a priori é uma distribuição de Dirichlet e a variável observada é uma multinomial, então a distribuição a posteriori será uma distribuição de Dirichlet (com outro parâmetro)¹.</p></li>
+</ol>
+<p>A escolha do método de estimação depende do contexto da análise. Se você tem uma boa ideia dos valores a priori dos parâmetros, a inferência Bayesiana pode ser uma boa escolha. Por outro lado, se você não tem informações a priori e tem uma grande quantidade de dados, o MLE pode ser mais apropriado². Além disso, a complexidade computacional dos métodos também pode ser um fator na escolha do método de estimação².</p>
+<p>Origem: conversa com o Bing, 09/12/2023 (1) Distribuição de Dirichlet – Wikipédia, a enciclopédia livre. https://pt.wikipedia.org/wiki/Distribui%C3%A7%C3%A3o_de_Dirichlet. (2) Estimação de parâmetrosEstimação de parâmetros - UFS. https://cesad.ufs.br/ORBI/public/uploadCatalago/14582516022012Estatistica_Aplicada_a_Administracao_Aula_9.pdf. (3) AVALIAÇÃO DE MÉTODOS DE ESTIMAÇÃO DE PARÂMETROS DE DISTRIBUIÇÕES …. https://anaiscbens.emnuvens.com.br/cbens/article/view/946. (4) Teorema de Dirichlet sobre progressões aritméticas. https://pt.wikipedia.org/wiki/Teorema_de_Dirichlet_sobre_progress%C3%B5es_aritm%C3%A9ticas. (5) Distribuição de Dirichlet - Wikiwand. https://www.wikiwand.com/pt/Distribui%C3%A7%C3%A3o_de_Dirichlet. (6) Distribuição de Dirichlet - Biblioteca Vitual da FAPESP. https://bv.fapesp.br/pt/assunto/157342/distribuicao-de-dirichlet/.</p>
 </section>
 <section class="slide level2">
 <h2>Exemplo prático:</h2>
-<p>Apresente um exemplo prático de aplicação da distribuição de Dirichlet.</p>
-<p>Descreva a coleta de dados e como eles são ajustados à distribuição de Dirichlet.</p>
-<p>Mostre os resultados da análise e interprete-os.</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] 1 2 1 2 2 2 1 2 1 2 2 1 2 2 1 2 1 2 2 1</code></pre>
+</div>
+</div>
+<h4></h4>
+<pre><code></code></pre>
 </section></section>
 <section class="title-slide slide level1 center">
 <h1>Referências</h1>
@@ -392,7 +430,7 @@ Thalis Rebouças e Wesley
 </ul>
 
 <img src="images/logo.png" class="slide-logo r-stretch"><div class="footer footer-default">
-<p>Slides por Thalis e Wesley, feito em <a href="https://quarto.org/docs/presentations/revealjs/index.html">Quarto</a>. Código disponível <a href="https://github.com/thalisreboucas/">no GitHub</a>.</p>
+<p>Slides por Thalis e Wesley, feito em <a href="https://quarto.org/docs/presentations/revealjs/index.html">Quarto</a>. Código disponível <a href="https://github.com/thalisreboucas/Dirichlet-distribution-Slides">no GitHub</a>.</p>
 </div>
 </section>
     </div>
@@ -606,6 +644,44 @@ Thalis Rebouças e Wesley
         ]
       });
     </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {
