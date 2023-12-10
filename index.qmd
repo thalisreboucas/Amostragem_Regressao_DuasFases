@@ -23,6 +23,8 @@ Vamos explicar um pouco sobre
 
 ⬜ Introdução sobre a distribuição
 
+⬜ Fundamentos da distribuição Multinomial
+
 ⬜ Fundamentos da distribuição de Dirichlet
 
 ⬜ Propriedades e aplicações
@@ -38,9 +40,17 @@ Vamos explicar um pouco sobre
 
 ## Introdução
 
-A distribuição de Dirichlet possui várias propriedades interessantes, como invariância sob transformações afins, propriedade de conjugação e propriedade de marginalização. Ela também é amplamente utilizada em problemas envolvendo inferência bayesiana, misturas de distribuições e análise de dados composicionais.
 
-- Em resumo, a distribuição de Dirichlet é uma ferramenta estatística fundamental para modelar proporções e é amplamente aplicada em diversas áreas, como biologia, economia, ciências sociais e engenharia.
+```{r}
+
+#A distribuição de Dirichlet possui várias propriedades interessantes, como invariância sob transformações afins, propriedade de conjugação e propriedade de marginalização. Ela também é amplamente utilizada em problemas envolvendo inferência bayesiana, misturas de distribuições e análise de dados composicionais.
+#- Em resumo, a distribuição de Dirichlet é uma ferramenta estatística fundamental para modelar proporções e é amplamente aplicada em diversas áreas, como biologia, economia, ciências sociais e engenharia.
+
+```
+
+## Fundamento da distribuição Multinomial:
+
+
 
 ## Fundamentos da distribuição de Dirichlet:
 
@@ -149,12 +159,3 @@ topics(lda)
 
 - Paula, G. A. (2013). Modelos de regressão com apoio computacional. IME-USP, São Paulo.
 
-- Winkelmann, R. (2008). Econometric analysis of count data (5th Ed.). Springer Science & Business Media.
-
-- CONSUL, P. C
-Generalized Poisson Distributions: Properties and Applications. Statistics: Textbooks and Monographs,
-New York: Marcel Dekker Inc. 1989.
-
-- Long, J. Scott. 1990. The origins of sex differences in science. Social Forces. 68(3):1297-1316.
-
-- Long, J. Scott. 1997. Regression Models for Categorical and Limited Dependent Variables. Thousand Oaks, California: Sage.
