@@ -1,7 +1,7 @@
 ---
-title: "Dirichlet distribution"
+title: "Estimador do tipo Regressão para amostragem Duas Fases"
 author: "Thalis Rebouças e Wesley"
-date: "13 Dezembro 2023"
+date: "13 Setembro 2024"
 format: 
   revealjs:
     logo: "images/logo.png"
@@ -9,7 +9,7 @@ format:
     height: 900
     self-contained: false
     incremental: false
-    footer: "Slides por Thalis e Wesley, feito em [Quarto](https://quarto.org/docs/presentations/revealjs/index.html). Código disponível [no GitHub](https://github.com/thalisreboucas/Dirichlet-distribution-Slides)."
+    footer: "Slides por Thalis Rebouças, feito em [Quarto](https://quarto.org/docs/presentations/revealjs/index.html). Código disponível [no GitHub](https://github.com/thalisreboucas/Amostragem_Regressao_DuasFases)."
     theme: ["custom.scss"]
     slide-number: c/t
     show-slide-number: all
@@ -21,19 +21,21 @@ format:
 
 Vamos explicar um pouco sobre
 
-⬜ Introdução sobre a distribuição
+- Introdução sobre a distribuição
 
-⬜ Fundamentos da distribuição Multinomial
+-- Fundamentos da distribuição Multinomial
 
-⬜ Fundamentos da distribuição de Dirichlet
+-- Fundamentos da distribuição de Dirichlet
 
-⬜ Propriedades e aplicações
+-- Estatística Bayesiana
 
-⬜ Estimação de parâmentros
+- Estimação de parâmentros
 
-⬜ Exemplo prático
+- Propriedades e aplicações
 
-⬜ Referência
+- Exemplo prático
+
+- Referência
 
 
 # Vamos lá!
