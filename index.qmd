@@ -77,21 +77,40 @@ Nesse caso, é feita a seleção de uma amostra na primeira fase, onde são sele
 
 - O MRLS tem a seguinte forma:
 $$
- y_i = \beta_0 + \beta_1x_i + e_i , \ i = 1,\ldots,n.
+ y_i = \beta_0 + \beta_1x_i + e_i , \forall_i = 1,\ldots,n.
 $$
 em que:
 - $y_i$ é o valor da variável resposta e $x_i$ é o valor da variável explicativa, ambas referentes ao i-ésimo elemento da amostra.
 - $\beta_0$ e $\beta_1$ são parâmentros desconhecidos, denominados parâmetros (coeficientes) de regressão.
 - $e_i$ representa a fonte de variação associada ao i-ésimo elemento da amostra.
 
-# Função de densidade
+## Fundamentos de <br> Regressão linear simples
 
-A função de densidade de probabilidade da distribuição de Dirichlet é dada por¹:
+**Premissas**
 
-$$
-f(x_1, ..., x_K; α_1, ..., α_K) = \frac{1}{B(α)} \prod_{i=1}^{K} x_i^{α_i - 1}
-$$
+1. A função de regressão é linear
+2. $x_i$ são fixos e não são variáveis aleatórias. 
+3. $E[e_i|x_i] = 0, \forall_i=1,\ldots,n.$ 
+4. $Var[y_i|x_i] = Var[e_i|x_i] = \sigma^2, \forall_i=1,\ldots,n.$ (*Homoscesdaticidade*) 
+5. $Cov(e_i,e_j) = E[e_ie_j] = 0, \ \forall i \neq j$
+6. *Para inferência de segunda ordem* $e_j \sim  N(0,\sigma^2) ,i=1,\ldots,n. $
+
+## Fundamentos de <br> Regressão linear simples
+
+# Fundamentos do Estimador do tipo Regressão
+
+# Estimador do tipo Regressão para amostragem Duas Fases
+
+# Propriedades e aplicações
+
+# Prova dos Estimadores
+
+# Exemplos 
 
 # Referências
 
--   Paula, G. A. (2013). Modelos de regressão com apoio computacional. IME-USP, São Paulo.
+- Särndal, Swensson & Wretman (1992). Model Assisted Survey Samplig.
+- Raosaheb Latpate, Jayant Kshirsagar, Vinod Kumar Gupta, Girish Chandra (2021). Advanced Sampling Methods.
+- Särndal, Swensson (1987). A General View of Estimation for Two Phases of Selection with Applications to Two-Phase Sampling and Nonresponse.
+- Andrés Gutiérrez (2015). Estrategias de muestreo Diseño de encuestas y estimacion de parámetros.
+- Shalabh, IIT Kanpur.Sampling Theory(https://home.iitk.ac.in/~shalab/course1.htm & https://nptel.ac.in/courses/111104073)
