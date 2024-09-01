@@ -1,7 +1,7 @@
 ---
 title: "Estimador do tipo Regressão para amostragem Duas Fases"
-author: "Thalis Rebouças e Wesley"
-date: "13 Setembro 2024"
+author: "Thalis Rebouças"
+date: "CC0292 2024 | Setembro 2024 <br><br> Slides:**thalisreboucas.github.io/Amostragem_Regressao_DuasFases/#/**"
 format: 
   revealjs:
     logo: "images/logo.png"
@@ -21,143 +21,62 @@ format:
 
 Vamos explicar um pouco sobre
 
-- Introdução sobre a distribuição
+-   Resumo Geral
 
--- Fundamentos da distribuição Multinomial
+     1. Fundamentos da amostragem em Duas Fases
 
--- Fundamentos da distribuição de Dirichlet
+     2. Fundamentos de Regressão linear
 
--- Estatística Bayesiana
+     3. Fundamentos do Estimador do tipo Regressão
 
-- Estimação de parâmentros
+-   Estimador do tipo Regressão para amostragem Duas Fases
 
-- Propriedades e aplicações
+     4. Propriedades e aplicações
 
-- Exemplo prático
+     5. Prova dos Estimadores
 
-- Referência
+-   Exemplo prático
 
+-   Referência
 
 # Vamos lá!
 
-## Introdução
+## Fundamentos da amostragem em Duas Fases:
 
+### Resumo:
 
-```{r}
+<!--# Descrito por hugo -->
 
-#A distribuição de Dirichlet possui várias propriedades interessantes, como invariância sob transformações afins, propriedade de conjugação e propriedade de marginalização. Ela também é amplamente utilizada em problemas envolvendo inferência bayesiana, misturas de distribuições e análise de dados composicionais.
-#- Em resumo, a distribuição de Dirichlet é uma ferramenta estatística fundamental para modelar proporções e é amplamente aplicada em diversas áreas, como biologia, economia, ciências sociais e engenharia.
+Foi um método proposto por Neymann (1938),em foi Särndal & Sweensson (1987) que desenvolve a teoria da amostragem em duas fases de modo teórico e induzido pelos princípios do estimador de Horvitz-Thompson e em (Särndal, Swensson & Wretman 1992) propós duas opções de desenhos amostras efiiêntes para a seleção da amostra.
 
-```
+-   Usar um delineamento de amostragem simples e combina-los com o estimador de Horvitz-Thompson
 
-## Fundamento da distribuição Multinomial:
+-   Obter informações sobre a população para construir uma nova estrutura amostral, podendo utilizar o estimador tipo regressão para aumenta a precisão.
 
+<!--# Resumir 01-->
 
+Foi proposto por Neymann (1938) para seleção de amostras que não temos os conhecimentos pleno de como é composta estrutural a população.e isso se reflete em uma estrutura de amostragem inadequada que não contempla variáveis de informação auxiliar (de nenhum tipo: nem discreto, nem contínuo), e por isso, não é possível propor o uso de uma estratégia de amostragem ótima (delineamentos avançados proporcionais ao tamanho ou estratificados e estimadores de regressão ou de calibração) para a estimação dos parâmetros populacionais de interesse. <!--# Resumir 01-->
 
 ## Fundamentos da distribuição de Dirichlet:
 
-### Origem e conceito: 
+### Origem e conceito:
 
-A **Distribuição de Dirichlet**, nomeada em homenagem a Johann Peter Gustav Lejeune Dirichlet, é uma distribuição discreta multivariada com um parâmetro vetorial não-negativo e real, frequentemente representada por Dir(α)¹²³. 
+A **Distribuição de Dirichlet**, nomeada em homenagem a Johann Peter Gustav Lejeune Dirichlet, é uma distribuição discreta multivariada com um parâmetro vetorial não-negativo e real, frequentemente representada por Dir(α)¹²³.
 
 Na análise Bayesiana, a distribuição de Dirichlet é usada como a distribuição conjugada da distribuição multinomial. Ou seja, se a distribuição a priori é uma distribuição de Dirichlet e a variável observada é uma multinomial, então a distribuição a posteriori será uma distribuição de Dirichlet (com outro parâmetro)¹.
 
 ### Parâmetros da distribuição:
+
 O vetor de parâmetros α é um vetor não-negativo e real que define a distribuição. O parâmetro de concentração é um número real positivo que especifica quão concentrada ou dispersa é a distribuição⁴.
 
-
 ### Função de densidade
+
 A função de densidade de probabilidade da distribuição de Dirichlet é dada por¹:
 
 $$
 f(x_1, ..., x_K; α_1, ..., α_K) = \frac{1}{B(α)} \prod_{i=1}^{K} x_i^{α_i - 1}
 $$
 
-onde $x_i$ são as variáveis aleatórias, $α_i$ são os parâmetros da distribuição, e $B(α)$ é a função beta multinomial, que pode ser expressa em termos da função gama¹.
+# Referências
 
-
-(1) Distribuição de Dirichlet – Wikipédia, a enciclopédia livre. https://pt.wikipedia.org/wiki/Distribui%C3%A7%C3%A3o_de_Dirichlet.
-(2) Distribuição de Dirichlet - Wikiwand. https://www.wikiwand.com/pt/Distribui%C3%A7%C3%A3o_de_Dirichlet.
-(3) Distribuição de Dirichlet - Thinkfn. https://thinkfn.com/wikibolsa/Distribui%C3%A7%C3%A3o_de_Dirichlet.
-(4) Processo de Dirichlet – Wikipédia, a enciclopédia livre. https://pt.wikipedia.org/wiki/Processo_de_Dirichlet.
-(5) Definição e significado de Distribuição de Dirichlet. https://bing.com/search?q=Par%c3%a2metros+da+distribui%c3%a7%c3%a3o+de+Dirichlet.
-(6) Distribuição e Densidade de Probabilidade - Moodle USP: e-Disciplinas. https://edisciplinas.usp.br/mod/resource/view.php?id=652426.
-(7) Função de densidade de probabilidade - Wikiwand. https://www.wikiwand.com/pt/Fun%C3%A7%C3%A3o_de_densidade_de_probabilidade.
-(8) Métodos e fórmulas para Distribuições de probabilidades. https://support.minitab.com/pt-br/minitab/20/help-and-how-to/probability-distributions-random-data-and-resampling-analyses/how-to/probability-distributions/methods-and-formulas/methods-and-formulas/.
-
-
-## Propriedades e aplicações:
-
-A distribuição de Dirichlet tem várias propriedades importantes¹:
-
-1. **Invariância**: A distribuição de Dirichlet é invariante sob permutações das variáveis. Isso significa que se você trocar a ordem das variáveis, a distribuição permanecerá a mesma¹.
-2. **Conexão com a distribuição Beta**: A distribuição de Dirichlet é uma generalização da distribuição Beta para o caso multivariado. De fato, se você integrar uma distribuição de Dirichlet sobre todas as variáveis, exceto uma, você obterá uma distribuição Beta¹.
-
-A distribuição de Dirichlet tem várias aplicações em diferentes áreas:
-
-1. **Modelagem de Misturas**: A distribuição de Dirichlet é frequentemente usada como uma distribuição a priori em modelos de mistura infinita⁵. Nesse contexto, a distribuição de Dirichlet permite modelar a incerteza sobre a proporção de diferentes componentes em uma mistura.
-2. **Análise de Sentimento**: Na análise de sentimento, a distribuição de Dirichlet pode ser usada para modelar a incerteza sobre a proporção de diferentes sentimentos em um texto⁶.
-3. **Processamento de Imagem**: No processamento de imagem, a distribuição de Dirichlet pode ser usada para modelar a incerteza sobre a proporção de diferentes cores ou texturas em uma imagem⁶.
-
-Essas são apenas algumas das muitas aplicações da distribuição de Dirichlet. Ela é uma ferramenta poderosa e flexível que pode ser usada em muitos contextos diferentes onde há incerteza sobre proporções.
-
-Origem: conversa com o Bing, 09/12/2023
-(1) Distribuição de Dirichlet – Wikipédia, a enciclopédia livre. https://pt.wikipedia.org/wiki/Distribui%C3%A7%C3%A3o_de_Dirichlet.
-(2) Processo de Dirichlet – Wikipédia, a enciclopédia livre. https://pt.wikipedia.org/wiki/Processo_de_Dirichlet.
-(3) O que é Latent Dirichlet Allocation (LDA - Alocação Latente de .... https://glossario.maiconramos.com/glossario/o-que-e-latent-dirichlet-allocation-lda-alocacao-latente-de-dirichlet-2/.
-(4) Distribuição de Dirichlet - Wikiwand. https://www.wikiwand.com/pt/Distribui%C3%A7%C3%A3o_de_Dirichlet.
-(5) Teorema de Dirichlet sobre progressões aritméticas. https://pt.wikipedia.org/wiki/Teorema_de_Dirichlet_sobre_progress%C3%B5es_aritm%C3%A9ticas.
-(6) O que é Condição Fronteira Dirichlet - Thermal Engineering. https://www.thermal-engineering.org/pt-br/o-que-e-condicao-fronteira-dirichlet-condicao-fronteira-tipo-i-definicao/.
-(7) Johann Peter Gustav Lejeune Dirichlet – Wikipédia, a enciclopédia livre. https://pt.wikipedia.org/wiki/Johann_Peter_Gustav_Lejeune_Dirichlet.
-
-## Estimação de parâmetros:
-
-Existem vários métodos para estimar os parâmetros da distribuição de Dirichlet, incluindo o método de máxima verossimilhança e a inferência Bayesiana¹².
-
-1. **Método de Máxima Verossimilhança (MLE)**: Este método procura encontrar os parâmetros que maximizam a função de verossimilhança, que é a probabilidade dos dados observados dados os parâmetros. Para a distribuição de Dirichlet, este método pode ser complexo devido à natureza multivariada da distribuição².
-
-2. **Inferência Bayesiana**: Na inferência Bayesiana, usamos uma distribuição a priori para os parâmetros e atualizamos essa distribuição com os dados observados para obter uma distribuição a posteriori. A distribuição de Dirichlet é a distribuição conjugada da distribuição multinomial, o que significa que se a distribuição a priori é uma distribuição de Dirichlet e a variável observada é uma multinomial, então a distribuição a posteriori será uma distribuição de Dirichlet (com outro parâmetro)¹.
-
-A escolha do método de estimação depende do contexto da análise. Se você tem uma boa ideia dos valores a priori dos parâmetros, a inferência Bayesiana pode ser uma boa escolha. Por outro lado, se você não tem informações a priori e tem uma grande quantidade de dados, o MLE pode ser mais apropriado². Além disso, a complexidade computacional dos métodos também pode ser um fator na escolha do método de estimação².
-
-Origem: conversa com o Bing, 09/12/2023
-(1) Distribuição de Dirichlet – Wikipédia, a enciclopédia livre. https://pt.wikipedia.org/wiki/Distribui%C3%A7%C3%A3o_de_Dirichlet.
-(2) Estimação de parâmetrosEstimação de parâmetros - UFS. https://cesad.ufs.br/ORBI/public/uploadCatalago/14582516022012Estatistica_Aplicada_a_Administracao_Aula_9.pdf.
-(3) AVALIAÇÃO DE MÉTODOS DE ESTIMAÇÃO DE PARÂMETROS DE DISTRIBUIÇÕES .... https://anaiscbens.emnuvens.com.br/cbens/article/view/946.
-(4) Teorema de Dirichlet sobre progressões aritméticas. https://pt.wikipedia.org/wiki/Teorema_de_Dirichlet_sobre_progress%C3%B5es_aritm%C3%A9ticas.
-(5) Distribuição de Dirichlet - Wikiwand. https://www.wikiwand.com/pt/Distribui%C3%A7%C3%A3o_de_Dirichlet.
-(6) Distribuição de Dirichlet - Biblioteca Vitual da FAPESP. https://bv.fapesp.br/pt/assunto/157342/distribuicao-de-dirichlet/.
-
-
-## Exemplo prático:
-```{r}
-# Instalando e carregando a biblioteca necessária
-library(topicmodels)
-
-# Carregando os dados
-data("AssociatedPress")
-
-# Ajustando o modelo LDA
-lda <- LDA(AssociatedPress[1:20, ], k = 2)
-
-# Exibindo os tópicos
-topics(lda)
-
-
-```
-
-
-
-####
-
-
-
-```{}
-
-```
-
-
-# Referências 
-
-- Paula, G. A. (2013). Modelos de regressão com apoio computacional. IME-USP, São Paulo.
-
+-   Paula, G. A. (2013). Modelos de regressão com apoio computacional. IME-USP, São Paulo.

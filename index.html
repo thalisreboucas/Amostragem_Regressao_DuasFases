@@ -8,10 +8,10 @@
 <link href="index_files/libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="index_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="index_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.3.353">
+  <meta name="generator" content="quarto-1.4.555">
 
-  <meta name="author" content="Thalis Rebouças e Wesley">
-  <title>Dirichlet distribution</title>
+  <meta name="author" content="Thalis Rebouças">
+  <title>Estimador do tipo Regressão para amostragem Duas Fases</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -156,7 +156,8 @@
   }
 
   .callout.callout-titled .callout-body > .callout-content > :last-child {
-    margin-bottom: 0.5rem;
+    padding-bottom: 0.5rem;
+    margin-bottom: 0;
   }
 
   .callout.callout-titled .callout-icon::before {
@@ -325,12 +326,12 @@
     <div class="slides">
 
 <section class="quarto-title-block center">
-  <h1 class="title">Dirichlet distribution</h1>
+  <h1 class="title">Estimador do tipo Regressão para amostragem Duas Fases</h1>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-Thalis Rebouças e Wesley 
+Thalis Rebouças 
 </div>
 </div>
 </div>
@@ -340,14 +341,21 @@ Thalis Rebouças e Wesley
 <section class="slide level2">
 <h2>Sumário de aprendizagem</h2>
 <p>Vamos explicar um pouco sobre</p>
-<p>⬜ Introdução sobre a distribuição</p>
-<p>⬜ Fundamentos da distribuição Multinomial</p>
-<p>dadsda</p>
-<p>⬜ Fundamentos da distribuição de Dirichlet</p>
-<p>⬜ Propriedades e aplicações</p>
-<p>⬜ Estimação de parâmentros</p>
-<p>⬜ Exemplo prático</p>
-<p>⬜ Referência</p>
+<ul>
+<li><p>Resumo Geral</p>
+<ol type="1">
+<li><p>Fundamentos da amostragem em Duas Fases</p></li>
+<li><p>Fundamentos de Regressão linear</p></li>
+<li><p>Fundamentos do Estimador do tipo Regressão</p></li>
+</ol></li>
+<li><p>Estimador do tipo Regressão para amostragem Duas Fases</p>
+<ol start="4" type="1">
+<li><p>Propriedades e aplicações</p></li>
+<li><p>Prova dos Estimadores</p></li>
+</ol></li>
+<li><p>Exemplo prático</p></li>
+<li><p>Referência</p></li>
+</ul>
 </section>
 <section>
 <section class="title-slide slide level1 center">
@@ -355,10 +363,16 @@ Thalis Rebouças e Wesley
 
 </section>
 <section class="slide level2">
-<h2>Introdução</h2>
-</section>
-<section class="slide level2">
-<h2>Fundamento da distribuição Multinomial:</h2>
+<h2>Fundamentos da amostragem em Duas Fases:</h2>
+<h3>Resumo:</h3>
+<!--# Descrito por hugo -->
+<p>Foi um método proposto por Neymann (1938),em foi Särndal &amp; Sweensson (1987) que desenvolve a teoria da amostragem em duas fases de modo teórico e induzido pelos princípios do estimador de Horvitz-Thompson e em (Särndal, Swensson &amp; Wretman 1992) propós duas opções de desenhos amostras efiiêntes para a seleção da amostra.</p>
+<ul>
+<li><p>Usar um delineamento de amostragem simples e combina-los com o estimador de Horvitz-Thompson</p></li>
+<li><p>Obter informações sobre a população para construir uma nova estrutura amostral, podendo utilizar o estimador tipo regressão para aumenta a precisão.</p></li>
+</ul>
+<!--# Resumir 01-->
+<p>Foi proposto por Neymann (1938) para seleção de amostras que não temos os conhecimentos pleno de como é composta estrutural a população.e isso se reflete em uma estrutura de amostragem inadequada que não contempla variáveis de informação auxiliar (de nenhum tipo: nem discreto, nem contínuo), e por isso, não é possível propor o uso de uma estratégia de amostragem ótima (delineamentos avançados proporcionais ao tamanho ou estratificados e estimadores de regressão ou de calibração) para a estimação dos parâmetros populacionais de interesse. <!--# Resumir 01--></p>
 </section>
 <section class="slide level2">
 <h2>Fundamentos da distribuição de Dirichlet:</h2>
@@ -372,62 +386,17 @@ Thalis Rebouças e Wesley
 <p><span class="math display">\[
 f(x_1, ..., x_K; α_1, ..., α_K) = \frac{1}{B(α)} \prod_{i=1}^{K} x_i^{α_i - 1}
 \]</span></p>
-<p>onde <span class="math inline">\(x_i\)</span> são as variáveis aleatórias, <span class="math inline">\(α_i\)</span> são os parâmetros da distribuição, e <span class="math inline">\(B(α)\)</span> é a função beta multinomial, que pode ser expressa em termos da função gama¹.</p>
-<ol type="1">
-<li>Distribuição de Dirichlet – Wikipédia, a enciclopédia livre. https://pt.wikipedia.org/wiki/Distribui%C3%A7%C3%A3o_de_Dirichlet.</li>
-<li>Distribuição de Dirichlet - Wikiwand. https://www.wikiwand.com/pt/Distribui%C3%A7%C3%A3o_de_Dirichlet.</li>
-<li>Distribuição de Dirichlet - Thinkfn. https://thinkfn.com/wikibolsa/Distribui%C3%A7%C3%A3o_de_Dirichlet.</li>
-<li>Processo de Dirichlet – Wikipédia, a enciclopédia livre. https://pt.wikipedia.org/wiki/Processo_de_Dirichlet.</li>
-<li>Definição e significado de Distribuição de Dirichlet. https://bing.com/search?q=Par%c3%a2metros+da+distribui%c3%a7%c3%a3o+de+Dirichlet.</li>
-<li>Distribuição e Densidade de Probabilidade - Moodle USP: e-Disciplinas. https://edisciplinas.usp.br/mod/resource/view.php?id=652426.</li>
-<li>Função de densidade de probabilidade - Wikiwand. https://www.wikiwand.com/pt/Fun%C3%A7%C3%A3o_de_densidade_de_probabilidade.</li>
-<li>Métodos e fórmulas para Distribuições de probabilidades. https://support.minitab.com/pt-br/minitab/20/help-and-how-to/probability-distributions-random-data-and-resampling-analyses/how-to/probability-distributions/methods-and-formulas/methods-and-formulas/.</li>
-</ol>
-</section>
-<section class="slide level2">
-<h2>Propriedades e aplicações:</h2>
-<p>A distribuição de Dirichlet tem várias propriedades importantes¹:</p>
-<ol type="1">
-<li><strong>Invariância</strong>: A distribuição de Dirichlet é invariante sob permutações das variáveis. Isso significa que se você trocar a ordem das variáveis, a distribuição permanecerá a mesma¹.</li>
-<li><strong>Conexão com a distribuição Beta</strong>: A distribuição de Dirichlet é uma generalização da distribuição Beta para o caso multivariado. De fato, se você integrar uma distribuição de Dirichlet sobre todas as variáveis, exceto uma, você obterá uma distribuição Beta¹.</li>
-</ol>
-<p>A distribuição de Dirichlet tem várias aplicações em diferentes áreas:</p>
-<ol type="1">
-<li><strong>Modelagem de Misturas</strong>: A distribuição de Dirichlet é frequentemente usada como uma distribuição a priori em modelos de mistura infinita⁵. Nesse contexto, a distribuição de Dirichlet permite modelar a incerteza sobre a proporção de diferentes componentes em uma mistura.</li>
-<li><strong>Análise de Sentimento</strong>: Na análise de sentimento, a distribuição de Dirichlet pode ser usada para modelar a incerteza sobre a proporção de diferentes sentimentos em um texto⁶.</li>
-<li><strong>Processamento de Imagem</strong>: No processamento de imagem, a distribuição de Dirichlet pode ser usada para modelar a incerteza sobre a proporção de diferentes cores ou texturas em uma imagem⁶.</li>
-</ol>
-<p>Essas são apenas algumas das muitas aplicações da distribuição de Dirichlet. Ela é uma ferramenta poderosa e flexível que pode ser usada em muitos contextos diferentes onde há incerteza sobre proporções.</p>
-<p>Origem: conversa com o Bing, 09/12/2023 (1) Distribuição de Dirichlet – Wikipédia, a enciclopédia livre. https://pt.wikipedia.org/wiki/Distribui%C3%A7%C3%A3o_de_Dirichlet. (2) Processo de Dirichlet – Wikipédia, a enciclopédia livre. https://pt.wikipedia.org/wiki/Processo_de_Dirichlet. (3) O que é Latent Dirichlet Allocation (LDA - Alocação Latente de …. https://glossario.maiconramos.com/glossario/o-que-e-latent-dirichlet-allocation-lda-alocacao-latente-de-dirichlet-2/. (4) Distribuição de Dirichlet - Wikiwand. https://www.wikiwand.com/pt/Distribui%C3%A7%C3%A3o_de_Dirichlet. (5) Teorema de Dirichlet sobre progressões aritméticas. https://pt.wikipedia.org/wiki/Teorema_de_Dirichlet_sobre_progress%C3%B5es_aritm%C3%A9ticas. (6) O que é Condição Fronteira Dirichlet - Thermal Engineering. https://www.thermal-engineering.org/pt-br/o-que-e-condicao-fronteira-dirichlet-condicao-fronteira-tipo-i-definicao/. (7) Johann Peter Gustav Lejeune Dirichlet – Wikipédia, a enciclopédia livre. https://pt.wikipedia.org/wiki/Johann_Peter_Gustav_Lejeune_Dirichlet.</p>
-</section>
-<section class="slide level2">
-<h2>Estimação de parâmetros:</h2>
-<p>Existem vários métodos para estimar os parâmetros da distribuição de Dirichlet, incluindo o método de máxima verossimilhança e a inferência Bayesiana¹².</p>
-<ol type="1">
-<li><p><strong>Método de Máxima Verossimilhança (MLE)</strong>: Este método procura encontrar os parâmetros que maximizam a função de verossimilhança, que é a probabilidade dos dados observados dados os parâmetros. Para a distribuição de Dirichlet, este método pode ser complexo devido à natureza multivariada da distribuição².</p></li>
-<li><p><strong>Inferência Bayesiana</strong>: Na inferência Bayesiana, usamos uma distribuição a priori para os parâmetros e atualizamos essa distribuição com os dados observados para obter uma distribuição a posteriori. A distribuição de Dirichlet é a distribuição conjugada da distribuição multinomial, o que significa que se a distribuição a priori é uma distribuição de Dirichlet e a variável observada é uma multinomial, então a distribuição a posteriori será uma distribuição de Dirichlet (com outro parâmetro)¹.</p></li>
-</ol>
-<p>A escolha do método de estimação depende do contexto da análise. Se você tem uma boa ideia dos valores a priori dos parâmetros, a inferência Bayesiana pode ser uma boa escolha. Por outro lado, se você não tem informações a priori e tem uma grande quantidade de dados, o MLE pode ser mais apropriado². Além disso, a complexidade computacional dos métodos também pode ser um fator na escolha do método de estimação².</p>
-<p>Origem: conversa com o Bing, 09/12/2023 (1) Distribuição de Dirichlet – Wikipédia, a enciclopédia livre. https://pt.wikipedia.org/wiki/Distribui%C3%A7%C3%A3o_de_Dirichlet. (2) Estimação de parâmetrosEstimação de parâmetros - UFS. https://cesad.ufs.br/ORBI/public/uploadCatalago/14582516022012Estatistica_Aplicada_a_Administracao_Aula_9.pdf. (3) AVALIAÇÃO DE MÉTODOS DE ESTIMAÇÃO DE PARÂMETROS DE DISTRIBUIÇÕES …. https://anaiscbens.emnuvens.com.br/cbens/article/view/946. (4) Teorema de Dirichlet sobre progressões aritméticas. https://pt.wikipedia.org/wiki/Teorema_de_Dirichlet_sobre_progress%C3%B5es_aritm%C3%A9ticas. (5) Distribuição de Dirichlet - Wikiwand. https://www.wikiwand.com/pt/Distribui%C3%A7%C3%A3o_de_Dirichlet. (6) Distribuição de Dirichlet - Biblioteca Vitual da FAPESP. https://bv.fapesp.br/pt/assunto/157342/distribuicao-de-dirichlet/.</p>
-</section>
-<section class="slide level2">
-<h2>Exemplo prático:</h2>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code> [1] 1 2 2 1 2 1 1 1 1 2 2 1 1 2 1 2 2 2 2 1</code></pre>
-</div>
-</div>
-<h4></h4>
-<pre><code></code></pre>
 </section></section>
 <section class="title-slide slide level1 center">
 <h1>Referências</h1>
 <ul>
 <li>Paula, G. A. (2013). Modelos de regressão com apoio computacional. IME-USP, São Paulo.</li>
 </ul>
-
-<img src="images/logo.png" class="slide-logo r-stretch"><div class="footer footer-default">
-<p>Slides por Thalis e Wesley, feito em <a href="https://quarto.org/docs/presentations/revealjs/index.html">Quarto</a>. Código disponível <a href="https://github.com/thalisreboucas/Dirichlet-distribution-Slides">no GitHub</a>.</p>
+<div class="quarto-auto-generated-content">
+<p><img src="images/logo.png" class="slide-logo"></p>
+<div class="footer footer-default">
+<p>Slides por Thalis Rebouças, feito em <a href="https://quarto.org/docs/presentations/revealjs/index.html">Quarto</a>. Código disponível <a href="https://github.com/thalisreboucas/Amostragem_Regressao_DuasFases">no GitHub</a>.</p>
+</div>
 </div>
 </section>
     </div>
@@ -456,7 +425,6 @@ f(x_1, ..., x_K; α_1, ..., α_K) = \frac{1}{B(α)} \prod_{i=1}^{K} x_i^{α_i - 
       Reveal.initialize({
 'controlsAuto': true,
 'previewLinksAuto': false,
-'smaller': false,
 'pdfSeparateFragments': false,
 'autoAnimateEasing': "ease",
 'autoAnimateDuration': 1,
@@ -641,44 +609,6 @@ f(x_1, ..., x_K; α_1, ..., α_K) = \frac{1}{B(α)} \prod_{i=1}^{K} x_i^{α_i - 
         ]
       });
     </script>
-    
-    <script>
-      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
-      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
-      // slide changes (different for each slide format).
-      (function () {
-        // dispatch for htmlwidgets
-        function fireSlideEnter() {
-          const event = window.document.createEvent("Event");
-          event.initEvent("slideenter", true, true);
-          window.document.dispatchEvent(event);
-        }
-
-        function fireSlideChanged(previousSlide, currentSlide) {
-          fireSlideEnter();
-
-          // dispatch for shiny
-          if (window.jQuery) {
-            if (previousSlide) {
-              window.jQuery(previousSlide).trigger("hidden");
-            }
-            if (currentSlide) {
-              window.jQuery(currentSlide).trigger("shown");
-            }
-          }
-        }
-
-        // hookup for slidy
-        if (window.w3c_slidy) {
-          window.w3c_slidy.add_observer(function (slide_num) {
-            // slide_num starts at position 1
-            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
-          });
-        }
-
-      })();
-    </script>
-
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {
@@ -755,10 +685,27 @@ f(x_1, ..., x_K; α_1, ..., α_K) = \frac{1}{B(α)} \prod_{i=1}^{K} x_i^{α_i - 
         // clear code selection
         e.clearSelection();
       });
-      function tippyHover(el, contentFn) {
+        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+        var mailtoRegex = new RegExp(/^mailto:/);
+          var filterRegex = new RegExp('/' + window.location.host + '/');
+        var isInternal = (href) => {
+            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+        }
+        // Inspect non-navigation links and adorn them if external
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+        for (var i=0; i<links.length; i++) {
+          const link = links[i];
+          if (!isInternal(link.href)) {
+            // undo the damage that might have been done by quarto-nav.js in the case of
+            // links that we want to consider external
+            if (link.dataset.originalHref !== undefined) {
+              link.href = link.dataset.originalHref;
+            }
+          }
+        }
+      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
         const config = {
           allowHTML: true,
-          content: contentFn,
           maxWidth: 500,
           delay: 100,
           arrow: false,
@@ -768,8 +715,17 @@ f(x_1, ..., x_K; α_1, ..., α_K) = \frac{1}{B(α)} \prod_{i=1}^{K} x_i^{α_i - 
           interactive: true,
           interactiveBorder: 10,
           theme: 'light-border',
-          placement: 'bottom-start'
+          placement: 'bottom-start',
         };
+        if (contentFn) {
+          config.content = contentFn;
+        }
+        if (onTriggerFn) {
+          config.onTrigger = onTriggerFn;
+        }
+        if (onUntriggerFn) {
+          config.onUntrigger = onUntriggerFn;
+        }
           config['offset'] = [0,0];
           config['maxWidth'] = 700;
         window.tippy(el, config); 
@@ -783,7 +739,11 @@ f(x_1, ..., x_K; α_1, ..., α_K) = \frac{1}{B(α)} \prod_{i=1}^{K} x_i^{α_i - 
           try { href = new URL(href).hash; } catch {}
           const id = href.replace(/^#\/?/, "");
           const note = window.document.getElementById(id);
-          return note.innerHTML;
+          if (note) {
+            return note.innerHTML;
+          } else {
+            return "";
+          }
         });
       }
       const findCites = (el) => {
