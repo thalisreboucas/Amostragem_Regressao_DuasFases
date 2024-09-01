@@ -41,35 +41,50 @@ Vamos explicar um pouco sobre
 
 # Vamos lá!
 
-## Fundamentos da amostragem em Duas Fases:
+# Fundamentos da amostragem em Duas Fases
 
-### Resumo:
+## Fundamentos da <br> amostragem em Duas Fases:
 
 <!--# Descrito por hugo -->
 
-Foi um método proposto por Neymann (1938),em foi Särndal & Sweensson (1987) que desenvolve a teoria da amostragem em duas fases de modo teórico e induzido pelos princípios do estimador de Horvitz-Thompson e em (Särndal, Swensson & Wretman 1992) propós duas opções de desenhos amostras efiiêntes para a seleção da amostra.
+- Proposto por Neymann (1938) para seleção de amostras que não temos os conhecimentos pleno de como é composta estrutural a população
+- Em Särndal & Sweensson (1987) que desenvolve a teoria da amostragem em duas fases de modo teórico e induzido pelos princípios do estimador de Horvitz-Thompson.
+- Em Särndal, Swensson & Wretman (1992) propós duas opções de desenhos amostras eficiêntes para a seleção da amostra.
 
--   Usar um delineamento de amostragem simples e combina-los com o estimador de Horvitz-Thompson
+## Fundamentos da <br> amostragem em Duas Fases:
 
--   Obter informações sobre a população para construir uma nova estrutura amostral, podendo utilizar o estimador tipo regressão para aumenta a precisão.
+**Desenho proposto por Särndal, Swensson & Wretman (1992)** 
 
-<!--# Resumir 01-->
+-   Usar um delineamento de amostragem simples e combiná-lo com o estimador de Horvitz-Thompson.
 
-Foi proposto por Neymann (1938) para seleção de amostras que não temos os conhecimentos pleno de como é composta estrutural a população.e isso se reflete em uma estrutura de amostragem inadequada que não contempla variáveis de informação auxiliar (de nenhum tipo: nem discreto, nem contínuo), e por isso, não é possível propor o uso de uma estratégia de amostragem ótima (delineamentos avançados proporcionais ao tamanho ou estratificados e estimadores de regressão ou de calibração) para a estimação dos parâmetros populacionais de interesse. <!--# Resumir 01-->
+-   Obter informações sobre a população para construir uma nova estrutura amostral, podendo utilizar o estimador de regressão para aumentar a precisão.
 
-## Fundamentos da distribuição de Dirichlet:
+Nesse caso, é feita a seleção de uma amostra na primeira fase, onde são selecionados os indivíduos e coletando as variáveis auxiliares, e depois é feita uma subamostra, selecionando novamente os indivíduos e coletando as variáveis de interesse.
 
-### Origem e conceito:
+<!--# Resumir Foi proposto por Neymann (1938) para seleção de amostras que não temos os conhecimentos pleno de como é composta estrutural a população.e isso se reflete em uma estrutura de amostragem inadequada que não contempla variáveis de informação auxiliar (de nenhum tipo: nem discreto, nem contínuo), e por isso, não é possível propor o uso de uma estratégia de amostragem ótima (delineamentos avançados proporcionais ao tamanho ou estratificados e estimadores de regressão ou de calibração) para a estimação dos parâmetros populacionais de interesse.  01-->
 
-A **Distribuição de Dirichlet**, nomeada em homenagem a Johann Peter Gustav Lejeune Dirichlet, é uma distribuição discreta multivariada com um parâmetro vetorial não-negativo e real, frequentemente representada por Dir(α)¹²³.
+## Fundamentos da <br> amostragem em Duas Fases:
 
-Na análise Bayesiana, a distribuição de Dirichlet é usada como a distribuição conjugada da distribuição multinomial. Ou seja, se a distribuição a priori é uma distribuição de Dirichlet e a variável observada é uma multinomial, então a distribuição a posteriori será uma distribuição de Dirichlet (com outro parâmetro)¹.
+**Em Resumo:** 
 
-### Parâmetros da distribuição:
+- Na primeira fase, selecione uma amostra relativamente grande de elementos,$s_1$,colete informações de baixo custo sobre uma ou mais variáveis auxiliares , essas variáveis auxiliares serão utilizadas para estratificar a $s_1$.
 
-O vetor de parâmetros α é um vetor não-negativo e real que define a distribuição. O parâmetro de concentração é um número real positivo que especifica quão concentrada ou dispersa é a distribuição⁴.
+- Com o auxílio das informações auxiliares coletadas na primeira fase, selecione uma amostra de segunda fase,$s_2$, a partir de $s_1$,utilizando o delineamento $p(.|s_1)$, com isso $s_2$ uma subamostra. A variável de estudo $y$ é então observada para os elementos na amostra da segunda fase.
 
-### Função de densidade
+# Fundamentos de Regressão linear simples
+
+## Fundamentos de <br> Regressão linear simples
+
+- O MRLS tem a seguinte forma:
+$$
+ y_i = \beta_0 + \beta_1x_i + e_i , \ i = 1,\ldots,n.
+$$
+em que:
+- $y_i$ é o valor da variável resposta e $x_i$ é o valor da variável explicativa, ambas referentes ao i-ésimo elemento da amostra.
+- $\beta_0$ e $\beta_1$ são parâmentros desconhecidos, denominados parâmetros (coeficientes) de regressão.
+- $e_i$ representa a fonte de variação associada ao i-ésimo elemento da amostra.
+
+# Função de densidade
 
 A função de densidade de probabilidade da distribuição de Dirichlet é dada por¹:
 
