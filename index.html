@@ -327,6 +327,7 @@
 
 <section class="quarto-title-block center">
   <h1 class="title">Estimador do tipo Regressão para amostragem Duas Fases</h1>
+  <p class="subtitle">CC0292 2024 | Setembro 2024 <br><br> Slides:<strong>thalisreboucas.github.io/Amostragem_Regressao_DuasFases/#/</strong></p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -336,7 +337,6 @@ Thalis Rebouças
 </div>
 </div>
 
-  <p class="date">Invalid Date</p>
 </section>
 <section class="slide level2">
 <h2>Sumário de aprendizagem</h2>
@@ -417,13 +417,20 @@ y_i = \beta_0 + \beta_1x_i + e_i , \forall_i = 1,\ldots,n.
 <li>A função de regressão é linear</li>
 <li><span class="math inline">\(x_i\)</span> são fixos e não são variáveis aleatórias.</li>
 <li><span class="math inline">\(E[e_i|x_i] = 0, \forall_i=1,\ldots,n.\)</span></li>
-<li><span class="math inline">\(Var[y_i|x_i] = Var[e_i|x_i] = \sigma^2, \forall_i=1,\ldots,n.\)</span> (<em>Homoscesdaticidade</em>)</li>
+<li><span class="math inline">\(Var[y_i|x_i] = Var[e_i|x_i] = \sigma^2, \forall_i=1,\ldots,n.\)</span> (<strong>Homoscesdaticidade</strong>)</li>
 <li><span class="math inline">\(Cov(e_i,e_j) = E[e_ie_j] = 0, \ \forall i \neq j\)</span></li>
-<li><em>Para inferência de segunda ordem</em> $e_j N(0,^2) ,i=1,,n.&nbsp;$</li>
+<li><span class="math inline">\(e_j \sim  N(0,\sigma^2) ,i=1,\ldots,n.\)</span> (<strong>Para inferência de segunda ordem</strong>)</li>
 </ol>
 </section>
 <section class="slide level2">
 <h2>Fundamentos de <br> Regressão linear simples</h2>
+<p><strong>Estimador da Reta de regressão ajustada por MQ</strong></p>
+<p><span class="math display">\[ \hat{y}_i = \hat{\beta}_0 +\hat{\beta}_1x_i , \ i,\ldots,n. \]</span></p>
+<ul>
+<li><p><span class="math inline">\(\hat{\beta_0} = \bar{y_n} - \hat{\beta_1}\cdot \bar{x_n}\)</span></p></li>
+<li><p><span class="math inline">\(\hat{\beta_1} = \dfrac{\sum^n_{i=1} (x_i-\bar{x_n})(y_i-\bar{y_n})}{\sum^n_{i=1} (x_i-\bar{x_n})^2}\)</span></p></li>
+<li><p><span class="math inline">\(\hat{e}_i = y_i-\hat{y}_i = yi - (\hat{\beta}_0 +\hat{\beta}_1x_i) , \ i,\ldots,n.\)</span></p></li>
+</ul>
 </section></section>
 <section class="title-slide slide level1 center">
 <h1>Fundamentos do Estimador do tipo Regressão</h1>
@@ -453,7 +460,11 @@ y_i = \beta_0 + \beta_1x_i + e_i , \forall_i = 1,\ldots,n.
 <section class="title-slide slide level1 center">
 <h1>Referências</h1>
 <ul>
-<li>Paula, G. A. (2013). Modelos de regressão com apoio computacional. IME-USP, São Paulo.</li>
+<li>Särndal, Swensson &amp; Wretman (1992). Model Assisted Survey Samplig.</li>
+<li>Raosaheb Latpate, Jayant Kshirsagar, Vinod Kumar Gupta, Girish Chandra (2021). Advanced Sampling Methods.</li>
+<li>Särndal, Swensson (1987). A General View of Estimation for Two Phases of Selection with Applications to Two-Phase Sampling and Nonresponse.</li>
+<li>Andrés Gutiérrez (2015). Estrategias de muestreo Diseño de encuestas y estimacion de parámetros.</li>
+<li>Shalabh, IIT Kanpur.Sampling Theory(https://home.iitk.ac.in/~shalab/course1.htm &amp; https://nptel.ac.in/courses/111104073)</li>
 </ul>
 <div class="quarto-auto-generated-content">
 <p><img src="images/logo.png" class="slide-logo"></p>

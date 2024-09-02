@@ -1,7 +1,7 @@
 ---
 title: "Estimador do tipo Regressão para amostragem Duas Fases"
 author: "Thalis Rebouças"
-date: "CC0292 2024 | Setembro 2024 <br><br> Slides:**thalisreboucas.github.io/Amostragem_Regressao_DuasFases/#/**"
+subtitle: "CC0292 2024 | Setembro 2024 <br><br> Slides:**thalisreboucas.github.io/Amostragem_Regressao_DuasFases/#/**"
 format: 
   revealjs:
     logo: "images/logo.png"
@@ -91,13 +91,27 @@ em que:
 1. A função de regressão é linear
 2. $x_i$ são fixos e não são variáveis aleatórias. 
 3. $E[e_i|x_i] = 0, \forall_i=1,\ldots,n.$ 
-4. $Var[y_i|x_i] = Var[e_i|x_i] = \sigma^2, \forall_i=1,\ldots,n.$ (*Homoscesdaticidade*) 
+4. $Var[y_i|x_i] = Var[e_i|x_i] = \sigma^2, \forall_i=1,\ldots,n.$ (**Homoscesdaticidade**) 
 5. $Cov(e_i,e_j) = E[e_ie_j] = 0, \ \forall i \neq j$
-6. *Para inferência de segunda ordem* $e_j \sim  N(0,\sigma^2) ,i=1,\ldots,n. $
+6. $e_j \sim  N(0,\sigma^2) ,i=1,\ldots,n.$ (**Para inferência de segunda ordem**)
 
 ## Fundamentos de <br> Regressão linear simples
 
+**Estimador da Reta de regressão ajustada por MQ**
+
+$$ \hat{y}_i = \hat{\beta}_0 +\hat{\beta}_1x_i , \ i,\ldots,n. $$
+
+- $\hat{\beta_0} = \bar{y_n} - \hat{\beta_1}\cdot \bar{x_n}$
+
+- $\hat{\beta_1} = \dfrac{\sum^n_{i=1} (x_i-\bar{x_n})(y_i-\bar{y_n})}{\sum^n_{i=1} (x_i-\bar{x_n})^2}$
+
+- $\hat{e}_i = y_i-\hat{y}_i = yi - (\hat{\beta}_0 +\hat{\beta}_1x_i) , \ i,\ldots,n.$
+
+
 # Fundamentos do Estimador do tipo Regressão
+
+
+
 
 # Estimador do tipo Regressão para amostragem Duas Fases
 
