@@ -350,7 +350,7 @@ Thalis Rebouças
 </ol></li>
 <li><p>Estimador do tipo Regressão para amostragem Duas Fases</p>
 <ol start="4" type="1">
-<li><p>Propriedades e aplicações</p></li>
+<li><p>Explicação e aplicações</p></li>
 <li><p>Prova dos Estimadores</p></li>
 </ol></li>
 <li><p>Exemplo prático</p></li>
@@ -437,26 +437,76 @@ y_i = \beta_0 + \beta_1x_i + e_i , \forall_i = 1,\ldots,n.
 
 </section>
 
+<section>
 <section class="title-slide slide level1 center">
 <h1>Estimador do tipo Regressão para amostragem Duas Fases</h1>
 
 </section>
-
-<section class="title-slide slide level1 center">
-<h1>Propriedades e aplicações</h1>
-
+<section class="slide level2">
+<h2>Explicação</h2>
+<p>É um método de amostragem que utiliza informações auxiliares, coletadas juntamente com a amostra principal, para melhorar a precisão das estimativas dos valores totais e suas variâncias. Essas informações auxiliares podem incluir dados que estão relacionados com a variável de interesse, mas que são mais fáceis ou mais baratos de coletar.</p>
+<p>Assim, o método não apenas se baseia na amostra observada, mas também aproveita as informações adicionais disponíveis para fazer inferências mais precisas sobre a população inteira.</p>
 </section>
-
+<section class="slide level2">
+<h2>Explicação</h2>
+<p>O Sandal, propõem um distinção em três situações dependendo da natureza da informação auxiliar.</p>
+<ol type="1">
+<li><p>O valor de <span class="math inline">\(x_k=(x_{1k,...,x_{qk})'}\)</span> do vetor auxiliar é <span class="math inline">\(x=(x_1,...,x_q)'\)</span> é registrado para as unidades <span class="math inline">\(k \in s\)</span>.</p></li>
+<li><p>O valor de <span class="math inline">\(x_k\)</span> está disponível para todas as unidades <span class="math inline">\(k\)</span> em toda a população <span class="math inline">\(U\)</span>.</p></li>
+<li><p>ma combinação das Situações 1 e 2. O valor <span class="math inline">\(xk\)</span> é registrado para <span class="math inline">\(k \in s\)</span> e alguma outra informação (talvez ‘mais fraca’) <span class="math inline">\(z_k=(z_{1k,...,z_{pk})'}\)</span> é conhecida para todas as unidades <span class="math inline">\(k in U\)</span>.</p></li>
+</ol>
+</section>
+<section class="slide level2">
+<h2>Estimador de Mínimos Quadrados Ponderados</h2>
+<p><span class="math display">\[\beta= \left(\sum\dfrac{x_kx'_x}{\sigma^2_k}\right)^{-1}\sum\dfrac{x_ky_k}{\sigma^2_k}\]</span> <span class="math display">\[\hat{e}_k=y_k-x_k\beta\]</span></p>
+</section></section>
 <section class="title-slide slide level1 center">
 <h1>Prova dos Estimadores</h1>
 
 </section>
 
+<section>
 <section class="title-slide slide level1 center">
 <h1>Exemplos</h1>
 
 </section>
-
+<section class="slide level2">
+<h2>Exemplo do Livro Advanced Sampling Methods</h2>
+<p><strong>Exemplo 6.2 da página 81</strong></p>
+<p>Selecione uma amostra de 20 unidades na primeira fase usando amostragem aleatória simples sem reposição e registre apenas a idade de uma pessoa em um bloco das unidades selecionadas na amostra. A partir da amostra da primeira fase de 20 unidades, selecione uma subamostra de 10 unidades e registre tanto a idade de uma pessoa quanto as horas de sono. Estime as horas médias de sono (anos) em um bloco usando um estimador de regressão em amostragem em duas fases. Deduzir o intervalo de confiança de 95%.</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] -4.561215</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 377.8566</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 178.9044</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 347.599</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 408.1141</code></pre>
+</div>
+</div>
+<p>As horas médias de sono em um ano são 380,16 com um erro quadrático médio de 70,05, e um intervalo de confiança de 95% é [376,34, 414,21].</p>
+</section>
+<section class="slide level2">
+<h2>outra slide</h2>
+<p>O problema pede para realizar uma amostragem em duas fases para estimar a média de horas de sono por ano em um determinado bloco, utilizando um estimador de regressão.</p>
+<p>Fase 1: Amostragem Aleatória Simples Sem Reposição (SRSWOR): Selecione aleatoriamente 20 unidades (indivíduos) do bloco, sem permitir repetições. Anote apenas a idade de cada indivíduo selecionado nesta fase.</p>
+<p>Utilização da Tabela 6.1: A tabela 6.1, mencionada no enunciado, provavelmente contém a lista completa de indivíduos no bloco e suas respectivas idades. Utilize esta tabela para selecionar aleatoriamente os 20 indivíduos da primeira fase.</p>
+<p>Fase 2: Subamostragem: Dos 20 indivíduos selecionados na Fase 1, selecione aleatoriamente 10 indivíduos, formando uma subamostra. Coleta de Dados Completa: Para cada indivíduo na subamostra, anote tanto a idade quanto as horas de sono.</p>
+<p>Estimativa e Intervalo de Confiança: Estimador de Regressão: Utilize um estimador de regressão para estimar a média de horas de sono por ano para todo o bloco, usando as informações coletadas nas duas fases da amostragem. O estimador de regressão utiliza a relação entre idade e horas de sono observada na subamostra para melhorar a precisão da estimativa.</p>
+<p>Intervalo de Confiança de 95%: Calcule um intervalo de confiança de 95% para a média estimada de horas de sono por ano. Este intervalo fornecerá uma faixa de valores plausíveis para a verdadeira média da população, com 95% de confiança.</p>
+<p>Em resumo, o objetivo é estimar a média de horas de sono por ano em um bloco, utilizando um método de amostragem em duas fases com um estimador de regressão para aumentar a precisão da estimativa.</p>
+</section>
+<section class="slide level2">
+<h2>outro slide</h2>
+<p><span class="math display">\[\hat{y}_{reg}= \bar{y}+\beta(\bar{X}-\bar{x})\]</span> <span class="math display">\[MSE=\left(\dfrac{1}{20}-\dfrac{1}{50}\right)v_y+\left(\dfrac{1}{10}-\dfrac{1}{20}\right)v_y(1-p^2)\]</span> <span class="math display">\[IC = [\hat{y}_{reg}-t\sqrt{MSE},\hat{y}_{reg}+t\sqrt{MSE}]\]</span> Dados Utilizados: Variável Auxiliar (x): Idade Variável de Interesse (y): Número de horas de sono Etapas de Análise: Seleção da amostra inicial (20 unidades) por SRSWOR. Seleção da subamostra (10 unidades) para coleta adicional de dados. Cálculo dos estimadores de regressão. Estimativa da média das horas de sono. Cálculo do intervalo de confiança.</p>
+</section></section>
 <section class="title-slide slide level1 center">
 <h1>Referências</h1>
 <ul>
@@ -683,6 +733,82 @@ y_i = \beta_0 + \beta_1x_i + e_i , \forall_i = 1,\ldots,n.
         ]
       });
     </script>
+    
+
+    <script>
+
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+
+      // slide changes (different for each slide format).
+
+      (function () {
+
+        // dispatch for htmlwidgets
+
+        function fireSlideEnter() {
+
+          const event = window.document.createEvent("Event");
+
+          event.initEvent("slideenter", true, true);
+
+          window.document.dispatchEvent(event);
+
+        }
+
+    
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+
+          fireSlideEnter();
+
+    
+
+          // dispatch for shiny
+
+          if (window.jQuery) {
+
+            if (previousSlide) {
+
+              window.jQuery(previousSlide).trigger("hidden");
+
+            }
+
+            if (currentSlide) {
+
+              window.jQuery(currentSlide).trigger("shown");
+
+            }
+
+          }
+
+        }
+
+    
+
+        // hookup for slidy
+
+        if (window.w3c_slidy) {
+
+          window.w3c_slidy.add_observer(function (slide_num) {
+
+            // slide_num starts at position 1
+
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+
+          });
+
+        }
+
+    
+
+      })();
+
+    </script>
+
+    
+
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {
