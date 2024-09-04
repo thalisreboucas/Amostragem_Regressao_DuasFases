@@ -327,7 +327,7 @@
 
 <section class="quarto-title-block center">
   <h1 class="title">Estimador do tipo Regressão para amostragem Duas Fases</h1>
-  <p class="subtitle">CC0292 2024 | Setembro 2024 <br><br> Slides:<strong>thalisreboucas.github.io/Amostragem_Regressao_DuasFases/#/</strong></p>
+  <p class="subtitle">CC0292 - 2024 | Setembro 2024 <br><br> Slides:<strong>thalisreboucas.github.io/Amostragem_Regressao_DuasFases/#/</strong></p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -507,7 +507,15 @@ y_i = \beta_0 + \beta_1x_i + e_i , \forall_i = 1,\ldots,n.
 <h2>Explicação</h2>
 <p><strong>Desenvolvendo a situação 1 e 2</strong></p>
 <p>Com isso, o estimador de mínimos quadrados ponderados de <span class="math inline">\(\beta\)</span> e dos resíduos será:</p>
-<p><span class="math display">\[ \hat\beta = (\sum_Ux_kx_k'/\sigma^2_k)^{-1}\sum_Ux_ky_k/\sigma^2_k) \ ,\]</span> <span class="math display">\[\ E_k= y_k-x_k'\hat\beta \]</span> Entretanto, <span class="math inline">\((y_k,x_k)\)</span> são observadors para <span class="math inline">\(k \in s2\)</span> apenas e os k’s carregam um peso de <span class="math inline">\({\pi^*_k}^{-1}\)</span></p>
+<p><span class="math display">\[ \beta = (\sum_Ux_kx_k'/\sigma^2_k)^{-1}\sum_Ux_ky_k/\sigma^2_k) \ ,\]</span> <span class="math display">\[\ E_k= y_k-x_k'\beta \]</span> Entretanto, <span class="math inline">\((y_k,x_k)\)</span> são observadors para <span class="math inline">\(k \in s2\)</span> apenas e os k’s carregam um peso de <span class="math inline">\({\pi^*_k}^{-1}\)</span></p>
+</section>
+<section class="slide level2">
+<h2>Explicação</h2>
+<p><strong>Desenvolvendo a situação 1 e 2</strong></p>
+<p>Portanto o <span class="math inline">\(\hat{\beta}\)</span> é estimado por: <span class="math display">\[
+\hat{\beta} = (\sum_Ux_kx_k'/\sigma^2_k\pi^*_k)^{-1}\sum_Ux_ky_k/\sigma^2_k \pi^*_k).
+\]</span> Deste modo, podemos utilizar esse estimador para calcular os valores preditos de <span class="math inline">\(\hat{y} = x^{'}_k\hat{\beta}, \ \forall \ k \in s\)</span>, deste de que o <span class="math inline">\(x_k\)</span> seja conhecido para todo <span class="math inline">\(k \in s\)</span>.Já os resíduos são dados por:</p>
+<p><span class="math display">\[e_k = y_k - \hat y_k = y_k x^{'}_k\hat{\beta} \ \ (k \in s2)\]</span>, Deste de que</p>
 </section>
 <section class="slide level2">
 <h2>Explicação</h2>

@@ -1,7 +1,7 @@
 ---
 title: "Estimador do tipo Regressão para amostragem Duas Fases"
 author: "Thalis Rebouças"
-subtitle: "CC0292 2024 | Setembro 2024 <br><br> Slides:**thalisreboucas.github.io/Amostragem_Regressao_DuasFases/#/**"
+subtitle: "CC0292 - 2024 | Setembro 2024 <br><br> Slides:**thalisreboucas.github.io/Amostragem_Regressao_DuasFases/#/**"
 format: 
   revealjs:
     logo: "images/logo.png"
@@ -205,9 +205,24 @@ Termos então um modelo linear $\xi$ da seguinte forma, com os $yk$ independente
  
 Com isso, o estimador de mínimos quadrados ponderados de $\beta$ e dos resíduos será:
 
-$$ \hat\beta = (\sum_Ux_kx_k'/\sigma^2_k)^{-1}\sum_Ux_ky_k/\sigma^2_k) \ ,$$
-$$\ E_k= y_k-x_k'\hat\beta $$
+$$ \beta = (\sum_Ux_kx_k'/\sigma^2_k)^{-1}\sum_Ux_ky_k/\sigma^2_k) \ ,$$
+$$\ E_k= y_k-x_k'\beta $$
 Entretanto, $(y_k,x_k)$ são observadors para $k \in s2$ apenas e os k's carregam um peso de ${\pi^*_k}^{-1}$
+
+## Explicação
+
+ **Desenvolvendo a situação 1 e 2**
+
+Portanto o $\hat{\beta}$ é estimado por:
+$$
+\hat{\beta} = (\sum_Ux_kx_k'/\sigma^2_k\pi^*_k)^{-1}\sum_Ux_ky_k/\sigma^2_k \pi^*_k).
+$$
+Deste modo, podemos utilizar esse estimador para calcular os valores preditos de $\hat{y} = x^{'}_k\hat{\beta}, \ \forall \ k \in s$, deste de que o $x_k$ seja conhecido para todo $k \in s$.Já os resíduos são dados por:
+
+$$e_k = y_k - \hat y_k = y_k x^{'}_k\hat{\beta} \ \ (k \in s2)$$,
+Deste de que
+
+
 
 ## Explicação
 
