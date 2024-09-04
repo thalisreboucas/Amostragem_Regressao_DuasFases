@@ -71,6 +71,61 @@ Nesse caso, é feita a seleção de uma amostra na primeira fase, onde são sele
 
 - Com o auxílio das informações auxiliares coletadas na primeira fase, selecione uma amostra de segunda fase,$s_2$, a partir de $s_1$,utilizando o delineamento $p(.|s_1)$, com isso $s_2$ uma subamostra. A variável de estudo $y$ é então observada para os elementos na amostra da segunda fase.
 
+
+## Fundamentos da <br> amostragem em Duas Fases:
+
+**Em Resumo:** 
+
+Consideramos uma população finita $U = \{1,...,k,...,N\}$, na qual temos $y$ senda a variável de interesse e $y_k$ será o y-ésimo elemento da população.
+
+**Estimador do total** será,
+$$t_y = \sum_Uy_k$$.
+
+Para uma amostra $s$ o total será,$\sum_{k \in A}y_k$, se $A \subseteq U$
+
+
+## Fundamentos da <br> amostragem em Duas Fases:
+
+**Em Resumo:** 
+
+Para a **primeira fase** teremos uma amostra $s1$ sendo $s1 \subset U$ de tamanho $n$, não fixa, retirada por meio de uma $p_a(s1)$, logo definimos as propabilidades de inclusão como:
+$$\pi_{ak} = \sum_{k \in s}p_a(s1) ,\ \pi_{akl} = \sum_{k \in s}p_a(s1) , $$
+Para $\pi_{akk}=\pi_{ak}$. Sendo $\Delta_{akl}=\pi_{akl}-\pi_{ak}\pi_{al}$, assumimos isso para $\pi_{ak}>0 , \forall k$ e para estimação da variânica $$\pi_{akl}>0 , \forall \  k \ne l$$
+
+
+## Fundamentos da <br> amostragem em Duas Fases:
+
+**Em Resumo:** 
+
+Para a **segunda fase** teremos a amostra inicial $s1$ dada e teremos $s2 \subset s1$ com um tamanho $m$, não fixo, dado por $p(s2|s1)$,logo definimos as propabilidades de inclusão de $s2$ como:
+
+$$\pi_{k|s1} = \sum_{k \in s2}p(s2|s1) ,\ \pi_{kl|s1} = \sum_{kl \in s}p_a(s2|s1) , $$
+Para $\pi_{kk|s1}=\pi_{k|s1}$. Sendo $\Delta_{kl|s1}=\pi_{kl|s1}-\pi_{k|s1}\pi_{l|s1}$, assumimos isso para todo $s1$ $\pi_{k|s1}>0 , \forall \ k \in s1$ e para estimação da variânica $$\pi_{kl|s1}>0 , \forall \  k \ne l \in s1$$
+
+## Fundamentos da <br> amostragem em Duas Fases:
+
+**Em Resumo:** 
+
+A soma expandida de $\pi^*$ definida, para todo $k,l \in s$ e para qualquer $s$,
+$$\pi^*_k = \pi_{ak}\pi_{k|s} ,\ \pi^*_{kl} = \pi_{akl}\pi_{kl|s}$$
+
+Com $\pi^*_{kk}=\pi^*_{k}$. Sendo $\Delta^*_{kl}=\pi^*_{kl}-\pi^*_{k}\pi^*_{l}$, definimos a expansão dos valores de $y$ e $\Delta$, sendo :
+$$\check y_k = y_k/\pi_{ak} , \ \ \check y^+_k = \check y_k/\pi_{k|s} =y_k/\pi^*_k, \ \ \check \Delta_{akl} = \Delta_{akl}/\pi_{akl} $$ 
+**obs:** "$\check{ }$" é a primeira fase de expansão e "$\check{ }$" e "$^+$" indica dupla expansão.
+
+## Fundamentos da <br> amostragem em Duas Fases:
+
+**Em Resumo:** 
+
+**Os estimadores não viciados para,**
+
+- $\hat{t}_{\pi^*} = \sum_r \check y^+_k = \sum_r y_k/\pi^*_k $
+
+- $Var(\hat{t}_{\pi^*}) = \sum\sum_U\Delta_{akl} \check y_k \check y_l + E_a\{\sum\sum_s\Delta_{kl|s}\check y^+_k \check y^+_l\}$
+
+-$\hat{Var}(\hat{t}_{\pi^*}) = \sum\sum_U\Delta_{akl} \check y_k \check y_l /\pi_{kl|S} + \sum\sum_s\Delta_{kl|s}\check y^+_k \check y^+_l /\pi_{kl|S}$
+
+
 # Fundamentos de Regressão linear simples
 
 ## Fundamentos de <br> Regressão linear simples
@@ -123,11 +178,11 @@ Assim, o método não apenas se baseia na amostra observada, mas também aprovei
 
  O Sandal, propõem um distinção em três situações dependendo da natureza da  informação auxiliar.
  
- 1. O valor de $x_k=(x_{1k,...,x_{qk})'}$ do vetor auxiliar é $x=(x_1,...,x_q)'$ é registrado para as unidades $k \in s$.
+ 1. O valor de $x_k=(x_{1k},...,x_{qk} )'$ do vetor auxiliar é $x=(x_1,...,x_q)'$ é registrado para as unidades $k \in s$.
  
  2. O valor de $x_k$ está disponível para todas as unidades $k$ em toda a população $U$.
  
- 3. Uma combinação das Situações 1 e 2. O valor $xk$  é registrado para $k \in s$ e alguma outra informação (talvez uma relação'mais fraca') $z_k=(z_{1k,...,z_{pk})'}$ é conhecida para todas as unidades $k in U$.
+ 3. Uma combinação das Situações 1 e 2. O valor $xk$  é registrado para $k \in s$ e alguma outra informação (talvez uma relação 'mais fraca') $z_k=(z_{1k},...,z_{pk})'$ é conhecida para todas as unidades $k \in U$.
 
 ## Explicação
 
@@ -135,6 +190,22 @@ Assim, o método não apenas se baseia na amostra observada, mas também aprovei
 De acordo com  (Cassel, Sarndal & Wretman, 1976; Särndal, 1982), temos que: 
 - Supor a existência de uma relação de regressão entre $x_k$ e $y_k$ na população finita.
 - $y_k$  será observado apenas em uma amostra de segunda fase relativamente pequena.(Por conta de escassez de informação).
+
+Termos então um modelo linear $\xi$ da seguinte forma, com os $yk$ independentes:
+
+- $E_\xi(y_k) = x_k\beta$
+- $Var_\xi(y_k)=\sigma^2_k$ 
+
+
+## Explicação
+
+ **Desenvolvendo a situação 1 e 2**
+ 
+Com isso, o estimador de mínimos quadrados ponderados de $\beta$ e dos resíduos será:
+
+$$ \hat\beta = (\sum_Ux_kx_k'/\sigma^2_k)^{-1}\sum_Ux_ky_k/\sigma^2_k) \ ,$$
+$$\ E_k= y_k-x_k'\hat\beta $$
+
 
 
 ## Explicação
