@@ -119,11 +119,11 @@ $$\check y_k = y_k/\pi_{ak} , \ \ \check y^+_k = \check y_k/\pi_{k|s} =y_k/\pi^*
 
 **Os estimadores não viciados para,**
 
-- $\hat{t}_{\pi^*} = \sum_r \check y^+_k = \sum_r y_k/\pi^*_k $
+- $\hat{t}_{\pi^*} = \sum_r \check y^+_k = \sum_r y_k/\pi^*_k$
 
 - $Var(\hat{t}_{\pi^*}) = \sum\sum_U\Delta_{akl} \check y_k \check y_l + E_a\{\sum\sum_s\Delta_{kl|s}\check y^+_k \check y^+_l\}$
 
--$\hat{Var}(\hat{t}_{\pi^*}) = \sum\sum_U\Delta_{akl} \check y_k \check y_l /\pi_{kl|S} + \sum\sum_s\Delta_{kl|s}\check y^+_k \check y^+_l /\pi_{kl|S}$
+- $\hat{Var}(\hat{t}_{\pi^*}) = \sum\sum_U\Delta_{akl} \check y_k \check y_l /\pi_{kl|S} + \sum\sum_s\Delta_{kl|s}\check y^+_k \check y^+_l /\pi_{kl|S}$
 
 
 # Fundamentos de Regressão linear simples
@@ -188,7 +188,9 @@ Assim, o método não apenas se baseia na amostra observada, mas também aprovei
 
  **Desenvolvendo a situação 1 e 2**
 De acordo com  (Cassel, Sarndal & Wretman, 1976; Särndal, 1982), temos que: 
+
 - Supor a existência de uma relação de regressão entre $x_k$ e $y_k$ na população finita.
+
 - $y_k$  será observado apenas em uma amostra de segunda fase relativamente pequena.(Por conta de escassez de informação).
 
 Termos então um modelo linear $\xi$ da seguinte forma, com os $yk$ independentes:
@@ -205,8 +207,7 @@ Com isso, o estimador de mínimos quadrados ponderados de $\beta$ e dos resíduo
 
 $$ \hat\beta = (\sum_Ux_kx_k'/\sigma^2_k)^{-1}\sum_Ux_ky_k/\sigma^2_k) \ ,$$
 $$\ E_k= y_k-x_k'\hat\beta $$
-
-
+Entretanto, $(y_k,x_k)$ são observadors para $k \in s2$ apenas e os k's carregam um peso de ${\pi^*_k}^{-1}$
 
 ## Explicação
 

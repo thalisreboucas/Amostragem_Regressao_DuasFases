@@ -423,10 +423,10 @@ Thalis Rebouças
 <p><strong>Em Resumo:</strong></p>
 <p><strong>Os estimadores não viciados para,</strong></p>
 <ul>
-<li><p>$_{^*} = _r y^+_k = _r y_k/^*_k $</p></li>
+<li><p><span class="math inline">\(\hat{t}_{\pi^*} = \sum_r \check y^+_k = \sum_r y_k/\pi^*_k\)</span></p></li>
 <li><p><span class="math inline">\(Var(\hat{t}_{\pi^*}) = \sum\sum_U\Delta_{akl} \check y_k \check y_l + E_a\{\sum\sum_s\Delta_{kl|s}\check y^+_k \check y^+_l\}\)</span></p></li>
+<li><p><span class="math inline">\(\hat{Var}(\hat{t}_{\pi^*}) = \sum\sum_U\Delta_{akl} \check y_k \check y_l /\pi_{kl|S} + \sum\sum_s\Delta_{kl|s}\check y^+_k \check y^+_l /\pi_{kl|S}\)</span></p></li>
 </ul>
-<p>-<span class="math inline">\(\hat{Var}(\hat{t}_{\pi^*}) = \sum\sum_U\Delta_{akl} \check y_k \check y_l /\pi_{kl|S} + \sum\sum_s\Delta_{kl|s}\check y^+_k \check y^+_l /\pi_{kl|S}\)</span></p>
 </section></section>
 <section>
 <section class="title-slide slide level1 center">
@@ -492,7 +492,11 @@ y_i = \beta_0 + \beta_1x_i + e_i , \forall_i = 1,\ldots,n.
 </section>
 <section class="slide level2">
 <h2>Explicação</h2>
-<p><strong>Desenvolvendo a situação 1 e 2</strong> De acordo com (Cassel, Sarndal &amp; Wretman, 1976; Särndal, 1982), temos que: - Supor a existência de uma relação de regressão entre <span class="math inline">\(x_k\)</span> e <span class="math inline">\(y_k\)</span> na população finita. - <span class="math inline">\(y_k\)</span> será observado apenas em uma amostra de segunda fase relativamente pequena.(Por conta de escassez de informação).</p>
+<p><strong>Desenvolvendo a situação 1 e 2</strong> De acordo com (Cassel, Sarndal &amp; Wretman, 1976; Särndal, 1982), temos que:</p>
+<ul>
+<li><p>Supor a existência de uma relação de regressão entre <span class="math inline">\(x_k\)</span> e <span class="math inline">\(y_k\)</span> na população finita.</p></li>
+<li><p><span class="math inline">\(y_k\)</span> será observado apenas em uma amostra de segunda fase relativamente pequena.(Por conta de escassez de informação).</p></li>
+</ul>
 <p>Termos então um modelo linear <span class="math inline">\(\xi\)</span> da seguinte forma, com os <span class="math inline">\(yk\)</span> independentes:</p>
 <ul>
 <li><span class="math inline">\(E_\xi(y_k) = x_k\beta\)</span></li>
@@ -503,7 +507,7 @@ y_i = \beta_0 + \beta_1x_i + e_i , \forall_i = 1,\ldots,n.
 <h2>Explicação</h2>
 <p><strong>Desenvolvendo a situação 1 e 2</strong></p>
 <p>Com isso, o estimador de mínimos quadrados ponderados de <span class="math inline">\(\beta\)</span> e dos resíduos será:</p>
-<p><span class="math display">\[ \hat\beta = (\sum_Ux_kx_k'/\sigma^2_k)^{-1}\sum_Ux_ky_k/\sigma^2_k) \ ,\]</span> <span class="math display">\[\ E_k= y_k-x_k'\hat\beta \]</span></p>
+<p><span class="math display">\[ \hat\beta = (\sum_Ux_kx_k'/\sigma^2_k)^{-1}\sum_Ux_ky_k/\sigma^2_k) \ ,\]</span> <span class="math display">\[\ E_k= y_k-x_k'\hat\beta \]</span> Entretanto, <span class="math inline">\((y_k,x_k)\)</span> são observadors para <span class="math inline">\(k \in s2\)</span> apenas e os k’s carregam um peso de <span class="math inline">\({\pi^*_k}^{-1}\)</span></p>
 </section>
 <section class="slide level2">
 <h2>Explicação</h2>
