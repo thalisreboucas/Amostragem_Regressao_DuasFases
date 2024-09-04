@@ -127,7 +127,34 @@ Assim, o método não apenas se baseia na amostra observada, mas também aprovei
  
  2. O valor de $x_k$ está disponível para todas as unidades $k$ em toda a população $U$.
  
- 3. ma combinação das Situações 1 e 2. O valor $xk$  é registrado para $k \in s$ e alguma outra informação (talvez 'mais fraca') $z_k=(z_{1k,...,z_{pk})'}$ é conhecida para todas as unidades $k in U$.
+ 3. Uma combinação das Situações 1 e 2. O valor $xk$  é registrado para $k \in s$ e alguma outra informação (talvez uma relação'mais fraca') $z_k=(z_{1k,...,z_{pk})'}$ é conhecida para todas as unidades $k in U$.
+
+## Explicação
+
+ **Desenvolvendo a situação 1 e 2**
+De acordo com  (Cassel, Sarndal & Wretman, 1976; Särndal, 1982), temos que: 
+- Supor a existência de uma relação de regressão entre $x_k$ e $y_k$ na população finita.
+- $y_k$  será observado apenas em uma amostra de segunda fase relativamente pequena.(Por conta de escassez de informação).
+
+
+## Explicação
+
+Para uma amostra de tamanho $n$, temos a seguinte reta de regressão:
+
+$$\bar{y}_{reg} = \bar{y}+ b(\bar{x}'-\bar{x})$$
+Sendo $b$ o coefiente de regressão estimado de $y_i$ em $x_i$ que são calculadas na segunda amostra e temos $\bar{x}'$ é da segunda amostra e $\bar{x}$ é o da primeira amostra.
+
+## Variancia
+
+Para uma amostra de tamanho $n$, temos a seguinte reta de regressão:
+
+$$\bar{y}_{reg} = \bar{y}+ b(\bar{x}'-\bar{x})$$
+Sendo $b$ o coefiente de regressão estimado de $y_i$ em $x_i$ que são calculadas na segunda amostra e temos $\bar{x}'$ é da segunda amostra e $\bar{x}$ é o da primeira amostra.
+
+## Estimadores
+
+
+
 
 ## Estimador de Mínimos Quadrados Ponderados
 
@@ -208,6 +235,7 @@ UL
 As horas médias de sono em um ano são 380,16 com um erro quadrático médio de 70,05, e um intervalo de confiança de 95% é [376,34, 414,21].
 
 
+<!-- Estimating Lichen Biomass and Caribou Grazing on the Wintering Grounds of Northern Québec: An Application of Fire History and Landsat Data -->
 
 ## outra slide
 O problema pede para realizar uma amostragem em duas fases para estimar a média de horas de sono por ano em um determinado bloco, utilizando um estimador de regressão.
