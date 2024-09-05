@@ -386,13 +386,76 @@ $$E_{\xi1}(y_k) = \beta_1, \ V_{\xi1}(y_k) = \sigma^2_1 (k \in U)$$,
 
 sendo $z_k = 1, \ \forall K$, os resultados estimados das regressões será:
 
-$$
-\hat t_{1REG}  = (\sum_s\check x_k)b, \ \ \hat t_{2REG}  = (\sum_U x_k)b, \ \  \hat t_{3REG}  = (N\bar x_k)b, 
-$$
+$$\hat t_{1REG}  = (\sum_s\check x_k)b, \ \ \hat t_{2REG}  = (\sum_U x_k)b, \ \  \hat t_{3REG}  = (N\bar x_k)b,$$
 Sendo $\bar x_s = \sum_s \check x_k/\hat N$ , $\hat N= \sum_s1/\pi_{ak}$ , $b = (\sum_r\check y^+_k)/(\sum_r\check x^+_k)$  e $e_k = y_k - bx_k$.
 
-# Estimador generalizado de regressão (greg) em duas fases
-## Greg
+
+# Estimador regressão generalizada (GREG) em duas fases
+
+## Estimador regressão generalizada (GREG) em duas fases
+**Estimador GREG para duas fases**
+
+
+
+## Estimador regressão generalizada (GREG) em duas fases
+**Estimador GREG para duas fases**
+
+$$\hat t^{(2)}_{yGREG} = \hat t^{(2)}_y+(\hat t^{(1)}_x-\hat t^{(2)}_x)^T\hat \beta^{(2)}$$
+sendo $\hat \beta^{(2)}$,
+
+$$\hat \beta^{(2)}\left(\sum_{i \in S^{(2)}} w^{(1)}_i w^{(2)}_i \dfrac{1}{\sigma^2_i}x_ix_i^T\right )^{-1}\sum_{i \in S^{(2)}}w_i^{(1)}w^{(2)}_i\dfrac{1}{\sigma^2_i}x_iy_i$$
+
+## Estimador regressão generalizada (GREG) em duas fases
+**Estimador GREG para duas fases**
+
+
+- $S(2)$: Representa a amostra da fase II (subamostra da amostra da fase I).
+
+- $w_i^{(1)}$: Peso da amostra da fase I (inverso da probabilidade de seleção na fase I).
+
+- $w_i^{(2)}$: Peso da amostra da fase II (inverso da probabilidade de seleção na fase II).
+
+- $g_i$: Fator de ajuste baseado na relação entre y e as variáveis auxiliares x. Esse fator corrige o viés no estimador inicial usando as informações auxiliares.
+
+## Estimador regressão generalizada (GREG) em duas fases
+**Estimador GREG para duas fases**
+
+O estimador $\hat t^{(2)}_{yGREG}$ pode ser escrito usando uma modificação dos pesos.
+
+A equação para $g_i$ é dada por:
+
+$$
+g_i = 1 + (\hat{t}^{(1)}_x - \hat{t}^{(2)}_x)^T \left(\sum_{i \in S^{(2)}} w_i^{(1)} w_i^{(2)} \frac{1}{\sigma^2_i} x_i x_i^T \right)^{-1} \frac{1}{\sigma^2_i} x_i
+$$
+
+Então, o estimador GREG é expresso como:
+
+$$
+\hat{t}^{(2)}_{y, GREG} = \sum_{i \in S^{(2)}} w_i^{(1)} w_i^{(2)} g_i y_i
+$$
+
+## Estimador regressão generalizada (GREG) em duas fases
+**Estimador GREG para duas fases**
+
+Por linearização, 
+
+$V(\hat{t}^{(2)}_{y, GREG} | Z) = V \left( \sum_{i \in S(2)} w_i^{(1)} w_i^{(2)} d_i^{(1)} \middle| Z \right),$
+
+onde $d_i^{(1)} = y_i - x_i^T \hat{B}^{(1)} $e $\hat{B}^{(1)} = \left( \sum_{i \in S(1)} \left( \frac{w_i^{(1)}}{\sigma^2_i} \right) x_i x_i^T \right)^{-1} \sum_{i \in S(1)} \left( \frac{w_i^{(1)}}{\sigma^2_i} \right) x_i y_i$.
+
+ A variância condicional no segundo termo é não viesada para sua expectativa, então $E \left( V(\hat{t}^{(2)}_{y, GREG} | Z) \right) $pode ser estimada por
+
+$\hat{V}(\hat{t}^{(2)}_{y, GREG} | Z) = \hat{V} \left( \sum_{i \in S(2)} w_i^{(1)} w_i^{(2)} e_i \middle| Z \right),$
+
+com $e_i = y_i - x_i \hat{B}^{(2)}$ substituído pelos valores desconhecidos $d_i^{(1)}$. Se o plano amostral da fase I for uma SRS (amostra aleatória simples) de $n^{(1)}$ unidades, 
+
+$\hat{V}(\hat{t}^{(1)}_y) = N^2 \left( 1 - \frac{n^{(1)}}{N} \right) \frac{\hat{S}^2_y}{n^{(1)}},$
+
+com
+
+$\hat{S}^2_y = \frac{1}{n^{(2)} - 1} \sum_{i \in S(2)} (y_i - \bar{y}^{(2)})^2.$
+
+
 
 # Prova dos Estimadores
 
