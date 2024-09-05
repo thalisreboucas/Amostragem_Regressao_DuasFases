@@ -375,8 +375,21 @@ A variância estimada aproxida de $e_K$ e $\check e^+_k = e_k/\pi^*_k$ aproximad
 
 ## Exemplo 1 - Teórico
 
+Utilizando uma amostragem em duas etapas para selecionar classes de estudantes são selecionados na primeira fase e os alunos individualmente são subamostras das classes selecionadas.Os estudantes selecionados formam a amostra da primeira fase , $s$, e váriavel $xk$ mais fraca como o aproveitamento acadêmico dos estudantes são coletadas.
+Os pesos das amostras da fase um são $1/\pi_{ak} = 1/(\pi_{li}\pi_{ki})$,sendo $\pi_{li}$ a probabilidade de inclusão na primeira amostra e $\pi_{ki}$ é a probabilidade de selecionar novamente o k-ésimo individuo na segunda fase, sendo o i-ésimo individuo da primeira fase.Uma amostra da segunda fase, $r$, é extraída de $s$ por seleção aleatória simples de, por exemplo, $m$ dos $n$ k-ésimos individuos em $s$. Para $k \in r$, o valor $y_k$, uma medida mais robusta de desempenho, é registrado. 
 
+## Exemplo 1 - Teórico
 
+Em um caso em que o tamanho $N$ é a única informação disponível para a população como um todo, podemos aplicar a situação 3 com o modelo ‘inicial’.
+
+$$E_{\xi1}(y_k) = \beta_1, \ V_{\xi1}(y_k) = \sigma^2_1 (k \in U)$$,
+
+sendo $z_k = 1, \ \forall K$, os resultados estimados das regressões será:
+
+$$
+\hat t_{1REG}  = (\sum_s\check x_k)b, \ \ \hat t_{2REG}  = (\sum_U x_k)b, \ \  \hat t_{3REG}  = (N\bar x_k)b, 
+$$
+Sendo $\bar x_s = \sum_s \check x_k/\hat N$ , $\hat N= \sum_s1/\pi_{ak}$ , $b = (\sum_r\check y^+_k)/(\sum_r\check x^+_k)$  e $e_k = y_k - bx_k$.
 
 # Estimador generalizado de regressão (greg) em duas fases
 ## Greg

@@ -621,6 +621,16 @@ Var(Y_i) =
 </section>
 <section class="slide level2">
 <h2>Exemplo 1 - Teórico</h2>
+<p>Utilizando uma amostragem em duas etapas para selecionar classes de estudantes são selecionados na primeira fase e os alunos individualmente são subamostras das classes selecionadas.Os estudantes selecionados formam a amostra da primeira fase , <span class="math inline">\(s\)</span>, e váriavel <span class="math inline">\(xk\)</span> mais fraca como o aproveitamento acadêmico dos estudantes são coletadas. Os pesos das amostras da fase um são <span class="math inline">\(1/\pi_{ak} = 1/(\pi_{li}\pi_{ki})\)</span>,sendo <span class="math inline">\(\pi_{li}\)</span> a probabilidade de inclusão na primeira amostra e <span class="math inline">\(\pi_{ki}\)</span> é a probabilidade de selecionar novamente o k-ésimo individuo na segunda fase, sendo o i-ésimo individuo da primeira fase.Uma amostra da segunda fase, <span class="math inline">\(r\)</span>, é extraída de <span class="math inline">\(s\)</span> por seleção aleatória simples de, por exemplo, <span class="math inline">\(m\)</span> dos <span class="math inline">\(n\)</span> k-ésimos individuos em <span class="math inline">\(s\)</span>. Para <span class="math inline">\(k \in r\)</span>, o valor <span class="math inline">\(y_k\)</span>, uma medida mais robusta de desempenho, é registrado.</p>
+</section>
+<section class="slide level2">
+<h2>Exemplo 1 - Teórico</h2>
+<p>Em um caso em que o tamanho <span class="math inline">\(N\)</span> é a única informação disponível para a população como um todo, podemos aplicar a situação 3 com o modelo ‘inicial’.</p>
+<p><span class="math display">\[E_{\xi1}(y_k) = \beta_1, \ V_{\xi1}(y_k) = \sigma^2_1 (k \in U)\]</span>,</p>
+<p>sendo <span class="math inline">\(z_k = 1, \ \forall K\)</span>, os resultados estimados das regressões será:</p>
+<p><span class="math display">\[
+\hat t_{1REG}  = (\sum_s\check x_k)b, \ \ \hat t_{2REG}  = (\sum_U x_k)b, \ \  \hat t_{3REG}  = (N\bar x_k)b,
+\]</span> Sendo <span class="math inline">\(\bar x_s = \sum_s \check x_k/\hat N\)</span> , <span class="math inline">\(\hat N= \sum_s1/\pi_{ak}\)</span> , <span class="math inline">\(b = (\sum_r\check y^+_k)/(\sum_r\check x^+_k)\)</span> e <span class="math inline">\(e_k = y_k - bx_k\)</span>.</p>
 </section></section>
 <section>
 <section class="title-slide slide level1 center">
