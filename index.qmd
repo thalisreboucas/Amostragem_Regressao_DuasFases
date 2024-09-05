@@ -31,9 +31,7 @@ Vamos explicar um pouco sobre
 
 -   Estimador do tipo Regressão para amostragem Duas Fases
 
-     4. Explicação e aplicações
-
-     5. Prova dos Estimadores
+     4. Explicação dos estimadores
 
 -   Exemplo prático
 
@@ -474,7 +472,6 @@ onde:
 
 - $\hat{S}^2_y = \frac{1}{n^{(2)} - 1} \sum_{i \in S^{(2)}} (y_i - \bar{y}^{(2)})^2$ é a estimativa da variância amostral da variável de interesse $y$ na fase II, $\bar{y}^{(2)}$ é a média de $y$ na amostra da fase II.
 
-# Prova dos Estimadores
 
 # Exemplos 
 
@@ -594,3 +591,10 @@ Cálculo do intervalo de confiança.
 - Särndal, Swensson (1987). A General View of Estimation for Two Phases of Selection with Applications to Two-Phase Sampling and Nonresponse.
 - Andrés Gutiérrez (2015). Estrategias de muestreo Diseño de encuestas y estimacion de parámetros.
 - Shalabh, IIT Kanpur.Sampling Theory(https://home.iitk.ac.in/~shalab/course1.htm & https://nptel.ac.in/courses/111104073)
+
+# Referências
+
+- Chapman, Sampling Design and Analysis (Chapman  HallCRC Texts in Statistical Science), 3rd Edition.
+- Raosaheb Latpate, Jayant Kshirsagar , Advanced Sampling Methods (2021).
+
+# Obrigado !! 
