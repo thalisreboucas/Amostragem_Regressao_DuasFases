@@ -165,6 +165,65 @@ $$ \hat{y}_i = \hat{\beta}_0 +\hat{\beta}_1x_i , \ i,\ldots,n. $$
 
 # Fundamentos do Estimador do tipo Regressão
 
+## Fundamentos do Estimador do tipo Regressão
+
+**Estimador tipo regressão para uma amostra aleatória simples**
+
+Podemos pensar em um estimador que não tenta prever com exatidão o os valores dos dados,mas em uma estimador que estimar uma reta em uma nuvem de dados com uma correlação alta, em que a reta possa ou não passar pela origem.
+
+Deste modo, podemos de maneira analoga comparar com o estimador `tipo razão` na qual funciona melhor se os dados forem bem ajustados por uma linha reta passando pela origem.
+
+## Fundamentos do Estimador do tipo Regressão
+
+**Estimador tipo regressão para uma amostra aleatória simples**
+
+Com esse estimador esperamos, assim como o tipo razão, uma melhor precisão nas estimativas para $\bar{y}_U$, por conta da relação linear de $x$ e $y$.
+
+Supondo que conheçamos a $\bar x_U$,a minha regressão estimada de $\bar{y}_U$ é ajustada quando $x=\bar x_U$:
+
+$$
+\hat y_{reg} = \hat \beta_0 + \hat \beta_1 \bar x_U= \bar y+\beta_1 (\bar x_U - \bar x)
+$$
+Se a média amostral $\bar{x}$ for menor que a média populacional $\bar{x}_U$ e $x$ e $y$ forem positivamente correlacionados, então esperaríamos que $\bar{y}$ também fosse menor que $\bar{y}_U$. 
+
+
+## Fundamentos do Estimador do tipo Regressão
+
+
+**Viés e erro quadrático médio para a estimativa por regressão.**
+
+Assim como o estimador por razão, o estimador por regressão é `viesado`. 
+
+Sejam $\beta_1$ e $\beta_0$ a inclinação e o intercepto da regressão por mínimos quadrados calculados a partir de todos os dados da população:
+
+$$ \hat \beta_1 = \frac{\sum_{i=1}^{N} (x_i − \bar{x}_U)(y_i − \bar{y}_U)}{\sum_{i=1}^{N} (x_i − \bar{x}_U)^2} = R \frac{S_y}{S_x}, $$
+$$\hat \beta_0 = \bar{y}_U − \hat\beta_1 \bar{x}_U$$.
+
+## Fundamentos do Estimador do tipo Regressão
+
+**Viés e erro quadrático médio para a estimativa por regressão.**
+
+O viés de $\hat{\bar{y}}_{reg}$ é dado por:
+
+$$
+E[\hat{\bar{y}}_{reg} − \bar{y}_U] = E[\bar{y} − \bar{y}_U] + E\left[B_1(\bar{x}_U − \bar{x})\right] = − \text{Cov}\left(B_1, \bar{x}\right)
+$$
+
+o viés é frequentemente desprezível em grandes amostras e se a linha de regressão passar por todos os pontos $(x_i, y_i)$ da população, então o viés é zero: nessa situação, $\hat{B}_1 = B_1$ para toda amostra, de modo que $\text{Cov}(\hat{B}_1, \bar{x}) = 0$. 
+
+## Fundamentos do Estimador do tipo Regressão
+
+**Viés e erro quadrático médio para a estimativa por regressão.**
+
+Seja $e_i$ o i-ésimo resíduo do modelo de regressão ajustado para toda a população. Então,
+
+$$MSE(\hat{y}_{reg}) = \left(1- \dfrac{n}{N} \right)\dfrac{S^2_d}{n} = \left(1- \dfrac{n}{N} \right)\dfrac{1}{n}S^2_d(1-R^2)$$
+Assim, o Erro Quadrático Médio Aproximado (MSE) aproximado é pequeno quando:
+- $n$ é grande
+- $\frac{n}{N}$ é grande
+- $S_y$ é pequeno
+- A correlação $R$ está próxima de -1 ou +1.
+
 
 # Estimador do tipo Regressão para amostragem Duas Fases
 

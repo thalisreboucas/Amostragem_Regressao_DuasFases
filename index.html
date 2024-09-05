@@ -466,11 +466,48 @@ y_i = \beta_0 + \beta_1x_i + e_i , \forall_i = 1,\ldots,n.
 <li><p><span class="math inline">\(\hat{e}_i = y_i-\hat{y}_i = yi - (\hat{\beta}_0 +\hat{\beta}_1x_i) , \ i,\ldots,n.\)</span></p></li>
 </ul>
 </section></section>
+<section>
 <section class="title-slide slide level1 center">
 <h1>Fundamentos do Estimador do tipo Regressão</h1>
 
 </section>
-
+<section class="slide level2">
+<h2>Fundamentos do Estimador do tipo Regressão</h2>
+<p><strong>Estimador tipo regressão para uma amostra aleatória simples</strong></p>
+<p>Podemos pensar em um estimador que não tenta prever com exatidão o os valores dos dados,mas em uma estimador que estimar uma reta em uma nuvem de dados com uma correlação alta, em que a reta possa ou não passar pela origem.</p>
+<p>Deste modo, podemos de maneira analoga comparar com o estimador <code>tipo razão</code> na qual funciona melhor se os dados forem bem ajustados por uma linha reta passando pela origem.</p>
+</section>
+<section class="slide level2">
+<h2>Fundamentos do Estimador do tipo Regressão</h2>
+<p><strong>Estimador tipo regressão para uma amostra aleatória simples</strong></p>
+<p>Com esse estimador esperamos, assim como o tipo razão, uma melhor precisão nas estimativas para <span class="math inline">\(\bar{y}_U\)</span>, por conta da relação linear de <span class="math inline">\(x\)</span> e <span class="math inline">\(y\)</span>.</p>
+<p>Supondo que conheçamos a <span class="math inline">\(\bar x_U\)</span>,a minha regressão estimada de <span class="math inline">\(\bar{y}_U\)</span> é ajustada quando <span class="math inline">\(x=\bar x_U\)</span>:</p>
+<p><span class="math display">\[
+\hat y_{reg} = \hat \beta_0 + \hat \beta_1 \bar x_U= \bar y+\beta_1 (\bar x_U - \bar x)
+\]</span> Se a média amostral <span class="math inline">\(\bar{x}\)</span> for menor que a média populacional <span class="math inline">\(\bar{x}_U\)</span> e <span class="math inline">\(x\)</span> e <span class="math inline">\(y\)</span> forem positivamente correlacionados, então esperaríamos que <span class="math inline">\(\bar{y}\)</span> também fosse menor que <span class="math inline">\(\bar{y}_U\)</span>.</p>
+</section>
+<section class="slide level2">
+<h2>Fundamentos do Estimador do tipo Regressão</h2>
+<p><strong>Viés e erro quadrático médio para a estimativa por regressão.</strong></p>
+<p>Assim como o estimador por razão, o estimador por regressão é <code>viesado</code>.</p>
+<p>Sejam <span class="math inline">\(\beta_1\)</span> e <span class="math inline">\(\beta_0\)</span> a inclinação e o intercepto da regressão por mínimos quadrados calculados a partir de todos os dados da população:</p>
+<p><span class="math display">\[ \hat \beta_1 = \frac{\sum_{i=1}^{N} (x_i − \bar{x}_U)(y_i − \bar{y}_U)}{\sum_{i=1}^{N} (x_i − \bar{x}_U)^2} = R \frac{S_y}{S_x}, \]</span> <span class="math display">\[\hat \beta_0 = \bar{y}_U − \hat\beta_1 \bar{x}_U\]</span>.</p>
+</section>
+<section class="slide level2">
+<h2>Fundamentos do Estimador do tipo Regressão</h2>
+<p><strong>Viés e erro quadrático médio para a estimativa por regressão.</strong></p>
+<p>O viés de <span class="math inline">\(\hat{\bar{y}}_{reg}\)</span> é dado por:</p>
+<p><span class="math display">\[
+E[\hat{\bar{y}}_{reg} − \bar{y}_U] = E[\bar{y} − \bar{y}_U] + E\left[B_1(\bar{x}_U − \bar{x})\right] = − \text{Cov}\left(B_1, \bar{x}\right)
+\]</span></p>
+<p>o viés é frequentemente desprezível em grandes amostras e se a linha de regressão passar por todos os pontos <span class="math inline">\((x_i, y_i)\)</span> da população, então o viés é zero: nessa situação, <span class="math inline">\(\hat{B}_1 = B_1\)</span> para toda amostra, de modo que <span class="math inline">\(\text{Cov}(\hat{B}_1, \bar{x}) = 0\)</span>.</p>
+</section>
+<section class="slide level2">
+<h2>Fundamentos do Estimador do tipo Regressão</h2>
+<p><strong>Viés e erro quadrático médio para a estimativa por regressão.</strong></p>
+<p>Seja <span class="math inline">\(e_i\)</span> o i-ésimo resíduo do modelo de regressão ajustado para toda a população. Então,</p>
+<p><span class="math display">\[MSE(\hat{y}_{reg}) = \left(1- \dfrac{n}{N} \right)\dfrac{S^2_d}{n} = \left(1- \dfrac{n}{N} \right)\dfrac{1}{n}S^2_d(1-R^2)\]</span> Assim, o Erro Quadrático Médio Aproximado (MSE) aproximado é pequeno quando: - <span class="math inline">\(n\)</span> é grande - <span class="math inline">\(\frac{n}{N}\)</span> é grande - <span class="math inline">\(S_y\)</span> é pequeno - A correlação <span class="math inline">\(R\)</span> está próxima de -1 ou +1.</p>
+</section></section>
 <section>
 <section class="title-slide slide level1 center">
 <h1>Estimador do tipo Regressão para amostragem Duas Fases</h1>
