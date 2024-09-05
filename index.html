@@ -638,6 +638,7 @@ Var(Y_i) =
 <section class="slide level2">
 <h2>Estimador regressão generalizada (GREG) em duas fases</h2>
 <p><strong>Estimador GREG para duas fases</strong></p>
+<p>Os estimadores GREG são assintoticamente não viesados em relação ao plano amostral (Särndal, et al.&nbsp;1992), independentemente da escolha dos regressores. A menos que a amostra seja pequena, o viés pode ser desprezado. É evidente que o estimador GREG será mais eficiente — no sentido de ter menor variância — do que o estimador de Horvitz-Thompson. Como resultado, o estimador GREG geralmente terá um desempenho superior ao estimador de Horvitz-Thompson em termos de erro quadrático médio (a soma da variância e do quadrado do viés).</p>
 </section>
 <section class="slide level2">
 <h2>Estimador regressão generalizada (GREG) em duas fases</h2>
@@ -671,15 +672,37 @@ g_i = 1 + (\hat{t}^{(1)}_x - \hat{t}^{(2)}_x)^T \left(\sum_{i \in S^{(2)}} w_i^{
 <section class="slide level2">
 <h2>Estimador regressão generalizada (GREG) em duas fases</h2>
 <p><strong>Estimador GREG para duas fases</strong></p>
-<p>Por linearização,</p>
-<p><span class="math inline">\(V(\hat{t}^{(2)}_{y, GREG} | Z) = V \left( \sum_{i \in S(2)} w_i^{(1)} w_i^{(2)} d_i^{(1)} \middle| Z \right),\)</span></p>
-<p>onde $d_i^{(1)} = y_i - x_i^T ^{(1)} $e <span class="math inline">\(\hat{B}^{(1)} = \left( \sum_{i \in S(1)} \left( \frac{w_i^{(1)}}{\sigma^2_i} \right) x_i x_i^T \right)^{-1} \sum_{i \in S(1)} \left( \frac{w_i^{(1)}}{\sigma^2_i} \right) x_i y_i\)</span>.</p>
-<p>A variância condicional no segundo termo é não viesada para sua expectativa, então $E ( V(^{(2)}_{y, GREG} | Z) ) $pode ser estimada por</p>
-<p><span class="math inline">\(\hat{V}(\hat{t}^{(2)}_{y, GREG} | Z) = \hat{V} \left( \sum_{i \in S(2)} w_i^{(1)} w_i^{(2)} e_i \middle| Z \right),\)</span></p>
-<p>com <span class="math inline">\(e_i = y_i - x_i \hat{B}^{(2)}\)</span> substituído pelos valores desconhecidos <span class="math inline">\(d_i^{(1)}\)</span>. Se o plano amostral da fase I for uma SRS (amostra aleatória simples) de <span class="math inline">\(n^{(1)}\)</span> unidades,</p>
-<p><span class="math inline">\(\hat{V}(\hat{t}^{(1)}_y) = N^2 \left( 1 - \frac{n^{(1)}}{N} \right) \frac{\hat{S}^2_y}{n^{(1)}},\)</span></p>
-<p>com</p>
-<p><span class="math inline">\(\hat{S}^2_y = \frac{1}{n^{(2)} - 1} \sum_{i \in S(2)} (y_i - \bar{y}^{(2)})^2.\)</span></p>
+<p>Por linearização, a variância condicional do estimador GREG pode ser expressa como: <span class="math display">\[
+V\left(\hat{t}^{(2)}_{y, GREG} \middle| Z \right) = V \left( \sum_{i \in S^{(2)}} w_i^{(1)} w_i^{(2)} d_i^{(1)} \middle| Z \right),\]</span></p>
+</section>
+<section class="slide level2">
+<h2>Estimador regressão generalizada (GREG) em duas fases</h2>
+<p><strong>Estimador GREG para duas fases</strong></p>
+<p>onde:</p>
+<ul>
+<li><p><span class="math inline">\(d_i^{(1)} = y_i - x_i^T \hat{B}^{(1)}\)</span>,</p></li>
+<li><p><span class="math inline">\(\hat{B}^{(1)} = \left( \sum_{i \in S^{(1)}} \left( \frac{w_i^{(1)}}{\sigma^2_i} \right) x_i x_i^T \right)^{-1} \sum_{i \in S^{(1)}} \left( \frac{w_i^{(1)}}{\sigma^2_i} \right) x_i y_i\)</span>.</p></li>
+</ul>
+<p>Aqui, <span class="math inline">\(\hat{B}^{(1)}\)</span> é o vetor estimado dos coeficientes de regressão baseados na primeira fase da amostra, e <span class="math inline">\(d_i^{(1)}\)</span> é o resíduo da fase I (diferença entre a variável de interesse <span class="math inline">\(y_i\)</span> e a predição baseada nas variáveis auxiliares <span class="math inline">\(x_i\)</span>).</p>
+</section>
+<section class="slide level2">
+<h2>Estimador regressão generalizada (GREG) em duas fases</h2>
+<p><strong>Estimador GREG para duas fases</strong></p>
+<p>A variância condicional no segundo termo é não viesada para sua expectativa, então <span class="math inline">\(E \left( V(\hat{t}^{(2)}_{y, GREG} | Z) \right)\)</span> pode ser estimada por:</p>
+<p><span class="math display">\[
+\hat{V}(\hat{t}^{(2)}_{y, GREG} | Z) = \hat{V} \left( \sum_{i \in S^{(2)}} w_i^{(1)} w_i^{(2)} e_i \middle| Z \right),
+\]</span></p>
+<p>com <span class="math inline">\(e_i = y_i - x_i \hat{B}^{(2)}\)</span> substituindo os valores desconhecidos <span class="math inline">\(d_i^{(1)}\)</span>. Aqui, <span class="math inline">\(e_i\)</span> é o resíduo da fase II, usando os coeficientes de regressão <span class="math inline">\(\hat{B}^{(2)}\)</span> estimados a partir dos dados da fase II.</p>
+</section>
+<section class="slide level2">
+<h2>Estimador regressão generalizada (GREG) em duas fases</h2>
+<p><strong>Estimador GREG para duas fases</strong></p>
+<p>Se o plano amostral da fase I for uma Amostra Aleatória Simples (AAs) de <span class="math inline">\(n^{(1)}\)</span> unidades, a variância do estimador da fase I pode ser estimada por: <span class="math display">\[
+\hat{V}(\hat{t}^{(1)}_y) = N^2 \left( 1 - \frac{n^{(1)}}{N} \right) \frac{\hat{S}^2_y}{n^{(1)}},
+\]</span> onde:</p>
+<ul>
+<li><span class="math inline">\(\hat{S}^2_y = \frac{1}{n^{(2)} - 1} \sum_{i \in S^{(2)}} (y_i - \bar{y}^{(2)})^2\)</span> é a estimativa da variância amostral da variável de interesse <span class="math inline">\(y\)</span> na fase II, <span class="math inline">\(\bar{y}^{(2)}\)</span> é a média de <span class="math inline">\(y\)</span> na amostra da fase II.</li>
+</ul>
 </section></section>
 <section class="title-slide slide level1 center">
 <h1>Prova dos Estimadores</h1>
