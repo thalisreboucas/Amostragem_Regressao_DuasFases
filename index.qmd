@@ -167,8 +167,6 @@ $$ \hat{y}_i = \hat{\beta}_0 +\hat{\beta}_1x_i , \ i,\ldots,n. $$
 
 ## Fundamentos do Estimador do tipo Regressão
 
-**Estimador tipo regressão para uma amostra aleatória simples**
-
 Podemos pensar em um estimador que não tenta prever com exatidão o os valores dos dados,mas em uma estimador que estimar uma reta em uma nuvem de dados com uma correlação alta, em que a reta possa ou não passar pela origem.
 
 Deste modo, podemos de maneira analoga comparar com o estimador `tipo razão` na qual funciona melhor se os dados forem bem ajustados por uma linha reta passando pela origem.
@@ -196,8 +194,8 @@ Assim como o estimador por razão, o estimador por regressão é `viesado`.
 
 Sejam $\beta_1$ e $\beta_0$ a inclinação e o intercepto da regressão por mínimos quadrados calculados a partir de todos os dados da população:
 
-$$ \hat \beta_1 = \frac{\sum_{i=1}^{N} (x_i − \bar{x}_U)(y_i − \bar{y}_U)}{\sum_{i=1}^{N} (x_i − \bar{x}_U)^2} = R \frac{S_y}{S_x}, $$
-$$\hat \beta_0 = \bar{y}_U − \hat\beta_1 \bar{x}_U$$.
+$$ \beta_1 = \frac{\sum_{i=1}^{N} (x_i − \bar{x}_U)(y_i − \bar{y}_U)}{\sum_{i=1}^{N} (x_i − \bar{x}_U)^2} = R \frac{S_y}{S_x}, $$
+$$\beta_0 = \bar{y}_U − \beta_1 \bar{x}_U$$.
 
 ## Fundamentos do Estimador do tipo Regressão
 
@@ -219,10 +217,40 @@ Seja $e_i$ o i-ésimo resíduo do modelo de regressão ajustado para toda a popu
 
 $$MSE(\hat{y}_{reg}) = \left(1- \dfrac{n}{N} \right)\dfrac{S^2_d}{n} = \left(1- \dfrac{n}{N} \right)\dfrac{1}{n}S^2_d(1-R^2)$$
 Assim, o Erro Quadrático Médio Aproximado (MSE) aproximado é pequeno quando:
+
+## Fundamentos do Estimador do tipo Regressão
+
+**Viés e erro quadrático médio para a estimativa por regressão.**
+
 - $n$ é grande
+
 - $\frac{n}{N}$ é grande
+
 - $S_y$ é pequeno
+
 - A correlação $R$ está próxima de -1 ou +1.
+
+## Fundamentos do Estimador do tipo Regressão
+
+**Em Resumo:** Um modelo base geral seria,
+
+Modelo adotado: $Y_i = \beta_0 + \beta_1 x_i + \epsilon_i$
+
+$$\hat{\beta}_1 = \frac{\sum_{i \in S} (x_i − \bar{x}_S) (Y_i − \bar{Y}_S)}{\sum_{i \in S} (x_i − \bar{x}_S)^2},$$
+
+$$\hat{\beta}_0 = \bar{Y}_S − \hat{\beta}_1 \bar{x}_S,$$
+$$\hat{T}_y  = N \left(\hat{\beta}_0 + \hat{\beta}_1 \bar{x}_U\right)$$
+
+## Fundamentos do Estimador do tipo Regressão
+
+**Em Resumo:** 
+Na prática, se o tamanho da amostra for pequeno em relação ao tamanho da população e tivermos uma amostra aleatória simples (AAs), podemos simplesmente ignorar a correção para a população finita e usar o erro padrão para estimar a média da resposta.
+
+$$
+Var(Y_i) =
+\sigma^2 \left[ \frac{1}{n} + \frac{(\bar{x}_U − \bar{x})^2}{\sum_{i \in S} (x_i − \bar{x})^2} \right].
+$$
+$$VM[\hat{T}_y − T] \approx N^2 \sigma^2 \left[ \frac{1}{n} + \frac{(\bar{x}_U − \bar{x}_S)^2}{\sum_{i \in S} (x_i − \bar{x}_S)^2} \right]., \ \text{se n/N for pequeno.}$$ 
 
 
 # Estimador do tipo Regressão para amostragem Duas Fases
@@ -274,38 +302,84 @@ Entretanto, $(y_k,x_k)$ são observadors para $k \in s2$ apenas e os k's carrega
 
 Portanto o $\hat{\beta}$ é estimado por:
 $$
-\hat{\beta} = (\sum_Ux_kx_k'/\sigma^2_k\pi^*_k)^{-1}\sum_Ux_ky_k/\sigma^2_k \pi^*_k).
+\hat{\beta} = \left(\sum_Ux_kx_k'/\sigma^2_k\pi^*_k)^{-1}\sum_Ux_ky_k/\sigma^2_k \pi^*_k \right).
 $$
 Deste modo, podemos utilizar esse estimador para calcular os valores preditos de $\hat{y} = x^{'}_k\hat{\beta}, \ \forall \ k \in s$, deste de que o $x_k$ seja conhecido para todo $k \in s$.Já os resíduos são dados por:
 
 $$e_k = y_k - \hat y_k = y_k x^{'}_k\hat{\beta} \ \ (k \in s2)$$,
-Deste de que
+Deste de que $y_k$ seja conhecido para $k \in r$.
+
+## Explicação
+
+ **Desenvolvendo os estimadores - Situação 1**
+ 
+Na amostragem de duas fases, quando $x_k$ é retirado para $k \in s$, o estimador aproximado não visiado para $t = \sum_U y_k$ é dado por:
+$$\hat t_{1REG}=\sum_{s1} \hat y_k / \pi_{ak} + \sum_{s2}(y_k-\hat y_k)/\pi^*_k
+$$
+ A variância aproximada de $E_K$ e $\check E^+_k = E_k/\pi^*_k$ aproximada é dado por:
+ $$AVar(\hat t_{1REG})=\sum\sum_U\Delta_{akl}\check y_k \check y_l + E_a \left\{ \sum\sum_{s1} \Delta_{kl|s1} \check E^+_k \check E^+_l \right\} $$
+
+## Explicação
+
+ **Desenvolvendo os estimadores - Situação 1**
+ 
+A variância estimada aproxida de $e_K$ e $\check e^+_k = e_k/\pi^*_k$ aproximada é dado por:
+ 
+ $$\hat{AVar}(\hat t_{1REG})=\sum\sum_{s2}\check \Delta_{akl}\check y_k \check y_l/\pi_{kl|s1}+  \sum\sum_{s2} \Delta_{kl|s1} \check e^+_k \check e^+_l /\pi_{kl|s1}$$
+
+## Explicação
+
+**Desenvolvendo os estimadores - Situação 2**
+Na amostragem de duas fases, quando $x_k$ é retirado para $k \in U$, o estimador aproximado não visiado para $t = \sum_U y_k$ é dado por:
+
+
+Na amostragem de duas fases, quando $x_k$ é retirado para $k \in s$, o estimador aproximado não visiado para $t = \sum_U y_k$ é dado por:
+$$\hat t_{2REG}=\sum_{U} \hat y_k  + \sum_{s2}(y_k-\hat y_k)/\pi^*_k
+$$
+ A variância aproximada de $E_K$ e $\check E^+_k = E_k/\pi^*_k$ aproximada é dado por:
+ $$AVar(\hat t_{2REG})=\sum\sum_U\Delta_{akl} \check E_k \check E_l + E_a  \sum\sum_{s1} \Delta_{kl|s1} \check E^+_k \check E^+_l  $$
+
+
+## Explicação
+
+ **Desenvolvendo os estimadores - Situação 2**
+ 
+A variância estimada aproxida de $e_K$ e $\check e^+_k = e_k/\pi^*_k$ aproximada é dado por:
+ 
+ $$\hat{AVar}(\hat t_{2REG})=\sum\sum_{s2}\check \Delta_{akl}\check e_k \check e_l/\pi_{kl|s1}+  \sum\sum_{s2} \Delta_{kl|s1} \check e^+_k \check e^+_l /\pi_{kl|s1}$$
 
 
 
 ## Explicação
 
-Para uma amostra de tamanho $n$, temos a seguinte reta de regressão:
+**Desenvolvendo os estimadores - Situação 3**
 
-$$\bar{y}_{reg} = \bar{y}+ b(\bar{x}'-\bar{x})$$
-Sendo $b$ o coefiente de regressão estimado de $y_i$ em $x_i$ que são calculadas na segunda amostra e temos $\bar{x}'$ é da segunda amostra e $\bar{x}$ é o da primeira amostra.
-
-## Variancia
-
-Para uma amostra de tamanho $n$, temos a seguinte reta de regressão:
-
-$$\bar{y}_{reg} = \bar{y}+ b(\bar{x}'-\bar{x})$$
-Sendo $b$ o coefiente de regressão estimado de $y_i$ em $x_i$ que são calculadas na segunda amostra e temos $\bar{x}'$ é da segunda amostra e $\bar{x}$ é o da primeira amostra.
-
-## Estimadores
+Na amostragem de duas fases, quando $x_k$ é retirado para $k \in s$ e temos um $z_k$ para $k \in U$, o estimador aproximado não visiado para $t = \sum_U y_k$ é dado por:
 
 
+Na amostragem de duas fases, quando $x_k$ é retirado para $k \in s$, o estimador aproximado não visiado para $t = \sum_U y_k$ é dado por:
+$$\hat t_{3REG}=\sum_{U} \hat y_{1k}  + \sum_{s1}(y_k-\hat y_k)/\pi_{ak}+\sum_{s2}(y_k-\hat y_k)/\pi^*_k$$
+A variância aproximada de $E_K$ e $\check E^+_k = E_k/\pi^*_k$ aproximada é dado por:
+ $$AVar(\hat t_{2REG})=\sum\sum_U\Delta_{akl} \check E_{1k} \check E_{1l} + E_a  \sum\sum_{s1} \Delta_{kl|s1} \check E^+_k \check E^+_l  $$
+
+## Explicação
+
+**Desenvolvendo os estimadores - Situação 3**
+
+A variância estimada aproxida de $e_K$ e $\check e^+_k = e_k/\pi^*_k$ aproximada é dado por:
+ 
+ $$\hat{AVar}(\hat t_{3REG})=\sum\sum_{s2}\check \Delta_{akl}\check e_k \check e_l/\pi_{kl|s1}+  \sum\sum_{s2} \Delta_{kl|s1} \check e^+_k \check e^+_l /\pi_{kl|s1}$$
 
 
-## Estimador de Mínimos Quadrados Ponderados
+# Exemplo 1 - Särndal, Swensson (1987) 
 
-$$\beta= \left(\sum\dfrac{x_kx'_x}{\sigma^2_k}\right)^{-1}\sum\dfrac{x_ky_k}{\sigma^2_k}$$ 
-$$\hat{e}_k=y_k-x_k\beta$$
+## Exemplo 1 - Teórico
+
+
+
+
+# Estimador generalizado de regressão (greg) em duas fases
+## Greg
 
 # Prova dos Estimadores
 

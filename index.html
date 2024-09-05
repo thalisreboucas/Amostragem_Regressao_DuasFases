@@ -473,7 +473,6 @@ y_i = \beta_0 + \beta_1x_i + e_i , \forall_i = 1,\ldots,n.
 </section>
 <section class="slide level2">
 <h2>Fundamentos do Estimador do tipo Regressão</h2>
-<p><strong>Estimador tipo regressão para uma amostra aleatória simples</strong></p>
 <p>Podemos pensar em um estimador que não tenta prever com exatidão o os valores dos dados,mas em uma estimador que estimar uma reta em uma nuvem de dados com uma correlação alta, em que a reta possa ou não passar pela origem.</p>
 <p>Deste modo, podemos de maneira analoga comparar com o estimador <code>tipo razão</code> na qual funciona melhor se os dados forem bem ajustados por uma linha reta passando pela origem.</p>
 </section>
@@ -491,7 +490,7 @@ y_i = \beta_0 + \beta_1x_i + e_i , \forall_i = 1,\ldots,n.
 <p><strong>Viés e erro quadrático médio para a estimativa por regressão.</strong></p>
 <p>Assim como o estimador por razão, o estimador por regressão é <code>viesado</code>.</p>
 <p>Sejam <span class="math inline">\(\beta_1\)</span> e <span class="math inline">\(\beta_0\)</span> a inclinação e o intercepto da regressão por mínimos quadrados calculados a partir de todos os dados da população:</p>
-<p><span class="math display">\[ \hat \beta_1 = \frac{\sum_{i=1}^{N} (x_i − \bar{x}_U)(y_i − \bar{y}_U)}{\sum_{i=1}^{N} (x_i − \bar{x}_U)^2} = R \frac{S_y}{S_x}, \]</span> <span class="math display">\[\hat \beta_0 = \bar{y}_U − \hat\beta_1 \bar{x}_U\]</span>.</p>
+<p><span class="math display">\[ \beta_1 = \frac{\sum_{i=1}^{N} (x_i − \bar{x}_U)(y_i − \bar{y}_U)}{\sum_{i=1}^{N} (x_i − \bar{x}_U)^2} = R \frac{S_y}{S_x}, \]</span> <span class="math display">\[\beta_0 = \bar{y}_U − \beta_1 \bar{x}_U\]</span>.</p>
 </section>
 <section class="slide level2">
 <h2>Fundamentos do Estimador do tipo Regressão</h2>
@@ -506,7 +505,32 @@ E[\hat{\bar{y}}_{reg} − \bar{y}_U] = E[\bar{y} − \bar{y}_U] + E\left[B_1(\ba
 <h2>Fundamentos do Estimador do tipo Regressão</h2>
 <p><strong>Viés e erro quadrático médio para a estimativa por regressão.</strong></p>
 <p>Seja <span class="math inline">\(e_i\)</span> o i-ésimo resíduo do modelo de regressão ajustado para toda a população. Então,</p>
-<p><span class="math display">\[MSE(\hat{y}_{reg}) = \left(1- \dfrac{n}{N} \right)\dfrac{S^2_d}{n} = \left(1- \dfrac{n}{N} \right)\dfrac{1}{n}S^2_d(1-R^2)\]</span> Assim, o Erro Quadrático Médio Aproximado (MSE) aproximado é pequeno quando: - <span class="math inline">\(n\)</span> é grande - <span class="math inline">\(\frac{n}{N}\)</span> é grande - <span class="math inline">\(S_y\)</span> é pequeno - A correlação <span class="math inline">\(R\)</span> está próxima de -1 ou +1.</p>
+<p><span class="math display">\[MSE(\hat{y}_{reg}) = \left(1- \dfrac{n}{N} \right)\dfrac{S^2_d}{n} = \left(1- \dfrac{n}{N} \right)\dfrac{1}{n}S^2_d(1-R^2)\]</span> Assim, o Erro Quadrático Médio Aproximado (MSE) aproximado é pequeno quando:</p>
+</section>
+<section class="slide level2">
+<h2>Fundamentos do Estimador do tipo Regressão</h2>
+<p><strong>Viés e erro quadrático médio para a estimativa por regressão.</strong></p>
+<ul>
+<li><p><span class="math inline">\(n\)</span> é grande</p></li>
+<li><p><span class="math inline">\(\frac{n}{N}\)</span> é grande</p></li>
+<li><p><span class="math inline">\(S_y\)</span> é pequeno</p></li>
+<li><p>A correlação <span class="math inline">\(R\)</span> está próxima de -1 ou +1.</p></li>
+</ul>
+</section>
+<section class="slide level2">
+<h2>Fundamentos do Estimador do tipo Regressão</h2>
+<p><strong>Em Resumo:</strong> Um modelo base geral seria,</p>
+<p>Modelo adotado: <span class="math inline">\(Y_i = \beta_0 + \beta_1 x_i + \epsilon_i\)</span></p>
+<p><span class="math display">\[\hat{\beta}_1 = \frac{\sum_{i \in S} (x_i − \bar{x}_S) (Y_i − \bar{Y}_S)}{\sum_{i \in S} (x_i − \bar{x}_S)^2},\]</span></p>
+<p><span class="math display">\[\hat{\beta}_0 = \bar{Y}_S − \hat{\beta}_1 \bar{x}_S,\]</span> <span class="math display">\[\hat{T}_y  = N \left(\hat{\beta}_0 + \hat{\beta}_1 \bar{x}_U\right)\]</span></p>
+</section>
+<section class="slide level2">
+<h2>Fundamentos do Estimador do tipo Regressão</h2>
+<p><strong>Em Resumo:</strong> Na prática, se o tamanho da amostra for pequeno em relação ao tamanho da população e tivermos uma amostra aleatória simples (AAs), podemos simplesmente ignorar a correção para a população finita e usar o erro padrão para estimar a média da resposta.</p>
+<p><span class="math display">\[
+Var(Y_i) =
+\sigma^2 \left[ \frac{1}{n} + \frac{(\bar{x}_U − \bar{x})^2}{\sum_{i \in S} (x_i − \bar{x})^2} \right].
+\]</span> <span class="math display">\[VM[\hat{T}_y − T] \approx N^2 \sigma^2 \left[ \frac{1}{n} + \frac{(\bar{x}_U − \bar{x}_S)^2}{\sum_{i \in S} (x_i − \bar{x}_S)^2} \right]., \ \text{se n/N for pequeno.}\]</span></p>
 </section></section>
 <section>
 <section class="title-slide slide level1 center">
@@ -550,26 +574,61 @@ E[\hat{\bar{y}}_{reg} − \bar{y}_U] = E[\bar{y} − \bar{y}_U] + E\left[B_1(\ba
 <h2>Explicação</h2>
 <p><strong>Desenvolvendo a situação 1 e 2</strong></p>
 <p>Portanto o <span class="math inline">\(\hat{\beta}\)</span> é estimado por: <span class="math display">\[
-\hat{\beta} = (\sum_Ux_kx_k'/\sigma^2_k\pi^*_k)^{-1}\sum_Ux_ky_k/\sigma^2_k \pi^*_k).
+\hat{\beta} = \left(\sum_Ux_kx_k'/\sigma^2_k\pi^*_k)^{-1}\sum_Ux_ky_k/\sigma^2_k \pi^*_k \right).
 \]</span> Deste modo, podemos utilizar esse estimador para calcular os valores preditos de <span class="math inline">\(\hat{y} = x^{'}_k\hat{\beta}, \ \forall \ k \in s\)</span>, deste de que o <span class="math inline">\(x_k\)</span> seja conhecido para todo <span class="math inline">\(k \in s\)</span>.Já os resíduos são dados por:</p>
-<p><span class="math display">\[e_k = y_k - \hat y_k = y_k x^{'}_k\hat{\beta} \ \ (k \in s2)\]</span>, Deste de que</p>
+<p><span class="math display">\[e_k = y_k - \hat y_k = y_k x^{'}_k\hat{\beta} \ \ (k \in s2)\]</span>, Deste de que <span class="math inline">\(y_k\)</span> seja conhecido para <span class="math inline">\(k \in r\)</span>.</p>
 </section>
 <section class="slide level2">
 <h2>Explicação</h2>
-<p>Para uma amostra de tamanho <span class="math inline">\(n\)</span>, temos a seguinte reta de regressão:</p>
-<p><span class="math display">\[\bar{y}_{reg} = \bar{y}+ b(\bar{x}'-\bar{x})\]</span> Sendo <span class="math inline">\(b\)</span> o coefiente de regressão estimado de <span class="math inline">\(y_i\)</span> em <span class="math inline">\(x_i\)</span> que são calculadas na segunda amostra e temos <span class="math inline">\(\bar{x}'\)</span> é da segunda amostra e <span class="math inline">\(\bar{x}\)</span> é o da primeira amostra.</p>
+<p><strong>Desenvolvendo os estimadores - Situação 1</strong></p>
+<p>Na amostragem de duas fases, quando <span class="math inline">\(x_k\)</span> é retirado para <span class="math inline">\(k \in s\)</span>, o estimador aproximado não visiado para <span class="math inline">\(t = \sum_U y_k\)</span> é dado por: <span class="math display">\[\hat t_{1REG}=\sum_{s1} \hat y_k / \pi_{ak} + \sum_{s2}(y_k-\hat y_k)/\pi^*_k
+\]</span> A variância aproximada de <span class="math inline">\(E_K\)</span> e <span class="math inline">\(\check E^+_k = E_k/\pi^*_k\)</span> aproximada é dado por: <span class="math display">\[AVar(\hat t_{1REG})=\sum\sum_U\Delta_{akl}\check y_k \check y_l + E_a \left\{ \sum\sum_{s1} \Delta_{kl|s1} \check E^+_k \check E^+_l \right\} \]</span></p>
 </section>
 <section class="slide level2">
-<h2>Variancia</h2>
-<p>Para uma amostra de tamanho <span class="math inline">\(n\)</span>, temos a seguinte reta de regressão:</p>
-<p><span class="math display">\[\bar{y}_{reg} = \bar{y}+ b(\bar{x}'-\bar{x})\]</span> Sendo <span class="math inline">\(b\)</span> o coefiente de regressão estimado de <span class="math inline">\(y_i\)</span> em <span class="math inline">\(x_i\)</span> que são calculadas na segunda amostra e temos <span class="math inline">\(\bar{x}'\)</span> é da segunda amostra e <span class="math inline">\(\bar{x}\)</span> é o da primeira amostra.</p>
+<h2>Explicação</h2>
+<p><strong>Desenvolvendo os estimadores - Situação 1</strong></p>
+<p>A variância estimada aproxida de <span class="math inline">\(e_K\)</span> e <span class="math inline">\(\check e^+_k = e_k/\pi^*_k\)</span> aproximada é dado por:</p>
+<p><span class="math display">\[\hat{AVar}(\hat t_{1REG})=\sum\sum_{s2}\check \Delta_{akl}\check y_k \check y_l/\pi_{kl|s1}+  \sum\sum_{s2} \Delta_{kl|s1} \check e^+_k \check e^+_l /\pi_{kl|s1}\]</span></p>
 </section>
 <section class="slide level2">
-<h2>Estimadores</h2>
+<h2>Explicação</h2>
+<p><strong>Desenvolvendo os estimadores - Situação 2</strong> Na amostragem de duas fases, quando <span class="math inline">\(x_k\)</span> é retirado para <span class="math inline">\(k \in U\)</span>, o estimador aproximado não visiado para <span class="math inline">\(t = \sum_U y_k\)</span> é dado por:</p>
+<p>Na amostragem de duas fases, quando <span class="math inline">\(x_k\)</span> é retirado para <span class="math inline">\(k \in s\)</span>, o estimador aproximado não visiado para <span class="math inline">\(t = \sum_U y_k\)</span> é dado por: <span class="math display">\[\hat t_{2REG}=\sum_{U} \hat y_k  + \sum_{s2}(y_k-\hat y_k)/\pi^*_k
+\]</span> A variância aproximada de <span class="math inline">\(E_K\)</span> e <span class="math inline">\(\check E^+_k = E_k/\pi^*_k\)</span> aproximada é dado por: <span class="math display">\[AVar(\hat t_{2REG})=\sum\sum_U\Delta_{akl} \check E_k \check E_l + E_a  \sum\sum_{s1} \Delta_{kl|s1} \check E^+_k \check E^+_l  \]</span></p>
 </section>
 <section class="slide level2">
-<h2>Estimador de Mínimos Quadrados Ponderados</h2>
-<p><span class="math display">\[\beta= \left(\sum\dfrac{x_kx'_x}{\sigma^2_k}\right)^{-1}\sum\dfrac{x_ky_k}{\sigma^2_k}\]</span> <span class="math display">\[\hat{e}_k=y_k-x_k\beta\]</span></p>
+<h2>Explicação</h2>
+<p><strong>Desenvolvendo os estimadores - Situação 2</strong></p>
+<p>A variância estimada aproxida de <span class="math inline">\(e_K\)</span> e <span class="math inline">\(\check e^+_k = e_k/\pi^*_k\)</span> aproximada é dado por:</p>
+<p><span class="math display">\[\hat{AVar}(\hat t_{2REG})=\sum\sum_{s2}\check \Delta_{akl}\check e_k \check e_l/\pi_{kl|s1}+  \sum\sum_{s2} \Delta_{kl|s1} \check e^+_k \check e^+_l /\pi_{kl|s1}\]</span></p>
+</section>
+<section class="slide level2">
+<h2>Explicação</h2>
+<p><strong>Desenvolvendo os estimadores - Situação 3</strong></p>
+<p>Na amostragem de duas fases, quando <span class="math inline">\(x_k\)</span> é retirado para <span class="math inline">\(k \in s\)</span> e temos um <span class="math inline">\(z_k\)</span> para <span class="math inline">\(k \in U\)</span>, o estimador aproximado não visiado para <span class="math inline">\(t = \sum_U y_k\)</span> é dado por:</p>
+<p>Na amostragem de duas fases, quando <span class="math inline">\(x_k\)</span> é retirado para <span class="math inline">\(k \in s\)</span>, o estimador aproximado não visiado para <span class="math inline">\(t = \sum_U y_k\)</span> é dado por: <span class="math display">\[\hat t_{3REG}=\sum_{U} \hat y_{1k}  + \sum_{s1}(y_k-\hat y_k)/\pi_{ak}+\sum_{s2}(y_k-\hat y_k)/\pi^*_k\]</span> A variância aproximada de <span class="math inline">\(E_K\)</span> e <span class="math inline">\(\check E^+_k = E_k/\pi^*_k\)</span> aproximada é dado por: <span class="math display">\[AVar(\hat t_{2REG})=\sum\sum_U\Delta_{akl} \check E_{1k} \check E_{1l} + E_a  \sum\sum_{s1} \Delta_{kl|s1} \check E^+_k \check E^+_l  \]</span></p>
+</section>
+<section class="slide level2">
+<h2>Explicação</h2>
+<p><strong>Desenvolvendo os estimadores - Situação 3</strong></p>
+<p>A variância estimada aproxida de <span class="math inline">\(e_K\)</span> e <span class="math inline">\(\check e^+_k = e_k/\pi^*_k\)</span> aproximada é dado por:</p>
+<p><span class="math display">\[\hat{AVar}(\hat t_{3REG})=\sum\sum_{s2}\check \Delta_{akl}\check e_k \check e_l/\pi_{kl|s1}+  \sum\sum_{s2} \Delta_{kl|s1} \check e^+_k \check e^+_l /\pi_{kl|s1}\]</span></p>
+</section></section>
+<section>
+<section class="title-slide slide level1 center">
+<h1>Exemplo 1 - Särndal, Swensson (1987)</h1>
+
+</section>
+<section class="slide level2">
+<h2>Exemplo 1 - Teórico</h2>
+</section></section>
+<section>
+<section class="title-slide slide level1 center">
+<h1>Estimador generalizado de regressão (greg) em duas fases</h1>
+
+</section>
+<section class="slide level2">
+<h2>Greg</h2>
 </section></section>
 <section class="title-slide slide level1 center">
 <h1>Prova dos Estimadores</h1>
