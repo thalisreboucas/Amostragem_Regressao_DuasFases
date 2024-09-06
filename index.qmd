@@ -634,7 +634,7 @@ $$MSE=\left(\dfrac{1}{20}-\dfrac{1}{50}\right)3246,794+\left(\dfrac{1}{10}-\dfra
 ```{r}
 print("Meu y estimado de regressão foi "); ybrd
 print("Meu MSE foi e ");Mse
-
+print("Meu CVE foi e ");round(sqrt(Mse)/Mse,4)
 ```
 
 
@@ -660,11 +660,6 @@ Comparando com agora com o valor populacional
 ```{r}
 print('Média de sono populacional');mean(y);print('Variância de sono populacional');var(y)
 ```
-
-
-
-
-
 
 
 # Referências
