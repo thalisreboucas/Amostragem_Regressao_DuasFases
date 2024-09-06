@@ -389,8 +389,8 @@ Thalis Rebouças
 <h2>Fundamentos da <br> amostragem em Duas Fases:</h2>
 <p><strong>Em Resumo:</strong></p>
 <ul>
-<li><p>Na primeira fase, selecione uma amostra relativamente grande de elementos,<span class="math inline">\(s_1\)</span>,colete informações de baixo custo sobre uma ou mais variáveis auxiliares , essas variáveis auxiliares serão utilizadas para estratificar a <span class="math inline">\(s_1\)</span>.</p></li>
-<li><p>Com o auxílio das informações auxiliares coletadas na primeira fase, selecione uma amostra de segunda fase,<span class="math inline">\(s_2\)</span>, a partir de <span class="math inline">\(s_1\)</span>,utilizando o delineamento <span class="math inline">\(p(.|s_1)\)</span>, com isso <span class="math inline">\(s_2\)</span> uma subamostra. A variável de estudo <span class="math inline">\(y\)</span> é então observada para os elementos na amostra da segunda fase.</p></li>
+<li><p>Na primeira fase, selecione uma amostra relativamente grande de elementos,<span class="math inline">\(s_1\)</span>,coletando informações de baixo custo sobre uma ou mais variáveis auxiliares , essas variáveis auxiliares serão utilizadas para estratificar <span class="math inline">\(s_1\)</span>.</p></li>
+<li><p>Com o auxílio das informações auxiliares coletadas na primeira fase, selecionamos uma amostra de segunda fase,<span class="math inline">\(s_2\)</span>, a partir de <span class="math inline">\(s_1\)</span>,utilizando o delineamento <span class="math inline">\(p(.|s_1)\)</span>, com isso <span class="math inline">\(s_2\)</span> uma subamostra. A variável de estudo <span class="math inline">\(y\)</span> é então observada para os elementos na amostra da segunda fase.</p></li>
 </ul>
 </section>
 <section class="slide level2">
@@ -679,10 +679,10 @@ V\left(\hat{t}^{(2)}_{y, GREG} \middle| Z \right) = V \left( \sum_{i \in S^{(2)}
 <p><strong>Estimador GREG para duas fases</strong></p>
 <p>onde:</p>
 <ul>
-<li><p><span class="math inline">\(d_i^{(1)} = y_i - x_i^T \hat{B}^{(1)}\)</span>,</p></li>
-<li><p><span class="math inline">\(\hat{B}^{(1)} = \left( \sum_{i \in S^{(1)}} \left( \frac{w_i^{(1)}}{\sigma^2_i} \right) x_i x_i^T \right)^{-1} \sum_{i \in S^{(1)}} \left( \frac{w_i^{(1)}}{\sigma^2_i} \right) x_i y_i\)</span>.</p></li>
+<li><p><span class="math inline">\(d_i^{(1)} = y_i - x_i^T \hat{\beta}^{(1)}\)</span>,</p></li>
+<li><p><span class="math inline">\(\hat{\beta}^{(1)} = \left( \sum_{i \in S^{(1)}} \left( \frac{w_i^{(1)}}{\sigma^2_i} \right) x_i x_i^T \right)^{-1} \sum_{i \in S^{(1)}} \left( \frac{w_i^{(1)}}{\sigma^2_i} \right) x_i y_i\)</span>.</p></li>
 </ul>
-<p>Aqui, <span class="math inline">\(\hat{B}^{(1)}\)</span> é o vetor estimado dos coeficientes de regressão baseados na primeira fase da amostra, e <span class="math inline">\(d_i^{(1)}\)</span> é o resíduo da fase I (diferença entre a variável de interesse <span class="math inline">\(y_i\)</span> e a predição baseada nas variáveis auxiliares <span class="math inline">\(x_i\)</span>).</p>
+<p>Aqui, <span class="math inline">\(\hat{\beta}^{(1)}\)</span> é o vetor estimado dos coeficientes de regressão baseados na primeira fase da amostra, e <span class="math inline">\(d_i^{(1)}\)</span> é o resíduo da fase I (diferença entre a variável de interesse <span class="math inline">\(y_i\)</span> e a predição baseada nas variáveis auxiliares <span class="math inline">\(x_i\)</span>).</p>
 </section>
 <section class="slide level2">
 <h2>Estimador regressão generalizada (GREG) em duas fases</h2>
@@ -712,39 +712,134 @@ V\left(\hat{t}^{(2)}_{y, GREG} \middle| Z \right) = V \left( \sum_{i \in S^{(2)}
 <h2>Exemplo do Livro Advanced Sampling Methods</h2>
 <p><strong>Exemplo 6.2 da página 81</strong></p>
 <p>Selecione uma amostra de 20 unidades na primeira fase usando amostragem aleatória simples sem reposição e registre apenas a idade de uma pessoa em um bloco das unidades selecionadas na amostra. A partir da amostra da primeira fase de 20 unidades, selecione uma subamostra de 10 unidades e registre tanto a idade de uma pessoa quanto as horas de sono. Estime as horas médias de sono (anos) em um bloco usando um estimador de regressão em amostragem em duas fases. Deduzir o intervalo de confiança de 95%.</p>
+</section>
+<section class="slide level2">
+<h2>Exemplo do Livro Advanced Sampling Methods</h2>
+<p>O problema pede para realizar uma amostragem em duas fases para estimar a média de horas de sono por ano em um determinado bloco, utilizando um estimador de regressão.</p>
+<p><strong>Fase 1:</strong> Amostragem Aleatória Simples Sem Reposição (AASs): Selecione aleatoriamente 20 unidades (indivíduos) do bloco, sem permitir repetições. Anote apenas a idade de cada indivíduo selecionado nesta fase.</p>
+<p><strong>Fase 2:</strong> Subamostragem: Dos 20 indivíduos selecionados na Fase 1, selecione aleatoriamente 10 indivíduos, formando uma subamostra. Coleta de Dados Completa: Para cada indivíduo na subamostra, anote tanto a idade quanto as horas de sono.</p>
+</section>
+<section class="slide level2">
+<h2>Exemplo do Livro Advanced Sampling Methods</h2>
+<p>Carregando os dados no R</p>
+<pre><code># Idades
+x &lt;- c(45.84, 73.82, 64.49, 58.46, 73.62, 58.91, 75.70, 59.15, 78.20, 62.89,
+       65.65, 64.94, 71.50, 62.92, 75.96, 74.63, 79.12, 65.80, 63.25, 70.06,
+       67.10, 62.63, 72.67, 70.85, 84.86, 64.06, 70.33, 62.61, 76.42, 57.91,
+       68.26, 58.82, 80.57, 77.63, 63.06, 71.14, 68.55, 84.53, 51.64, 76.62,
+       64.89, 76.66, 63.50, 56.01, 70.84, 58.23, 72.68, 60.06, 68.19, 58.66)
+
+# Número de horas de sono
+y &lt;- c(552.28, 367.02, 395.99, 477.71, 306.01, 435.09, 336.97, 359.99, 379.35, 403.77,
+       366.45, 401.95, 403.39, 412.02, 309.47, 394.52, 352.69, 347.07, 388.45, 147.54,
+       383.84, 400.17, 369.27, 361.34, 279.81, 421.00, 332.56, 397.37, 327.21, 425.10,
+       436.99, 488.72, 280.05, 276.77, 381.98, 326.33, 383.53, 240.07, 434.50, 343.46,
+       419.98, 310.65, 419.73, 454.06, 354.54, 395.14, 314.81, 425.12, 367.02, 412.70)
+</code></pre>
+</section>
+<section class="slide level2">
+<h2>Exemplo do Livro Advanced Sampling Methods</h2>
+<p>Seleção da amostra:</p>
+<pre><code>
+# Definindo a semente para reprodutibilidade
+set.seed(3)
+
+# Seleciona uma amostra de 20 unidades
+s1 &lt;- sample(1:50, 20, replace = FALSE)
+X &lt;- x[s1]
+mX &lt;- mean(X);MX
+
+# Seleciona uma subamostra de 10 unidades da amostra anterior
+S1 &lt;- sample(s1, 10, replace = FALSE)
+dx &lt;- x[S1]
+dy &lt;- y[S1]</code></pre>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] -4.561215</code></pre>
+<pre><code>[1] "Amostra seleciona da de s1"</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1]  5 12 39 36 40 43 31  8 20 10 46 45 37  2 29 50  9 34 32 24</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Amostra seleciona da de S1"</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] 34 50 45  8 43 24 39 32  9 10</code></pre>
+</div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Exemplo do Livro Advanced Sampling Methods</h2>
+<p>Modelo proposto será: <span class="math display">\[\hat{y}_{reg}= \bar{y}+\beta(\bar{X}-\bar{x})\]</span></p>
+<pre><code># Calcula as médias, variâncias e covariâncias
+mdx    &lt;- mean(dx)
+mdy    &lt;- mean(dy)
+vdx    &lt;- var(dx)
+vdy    &lt;- var(dy)
+cdxdy &lt;- cov(dx, dy)
+
+# Estima o coeficiente beta da regressão
+beta &lt;- cdxdy / vdx
+
+# Estimador de regressão para a média das horas de sono
+ybrd &lt;- mdy + beta * (mX - mdx)
+
+# Calcula o erro quadrático médio
+Mse &lt;- ((1/20) - (1/50)) * vdy + ((1/10) - (1/20)) * vdy * (1 - cor(dx,dy)^2)</code></pre>
+</section>
+<section class="slide level2">
+<h2>Exemplo do Livro Advanced Sampling Methods</h2>
+<p>Modelo proposto será: <span class="math display">\[\hat{y}_{reg}= 389,141 -4,56(67,692-65.218)\]</span> <span class="math display">\[MSE=\left(\dfrac{1}{20}-\dfrac{1}{50}\right)3246,794+\left(\dfrac{1}{10}-\dfrac{1}{20}\right)3246,794(1-0,4989^2)\]</span></p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Meu y estimado de regressão foi "</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 377.8566</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 178.9044</code></pre>
+<pre><code>[1] "Meu MSE foi e "</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 347.599</code></pre>
+<pre><code>[1] 178.9044</code></pre>
+</div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Exemplo do Livro Advanced Sampling Methods</h2>
+<p><span class="math display">\[IC = [\hat{y}_{reg}-t\sqrt{MSE},\hat{y}_{reg}+t\sqrt{MSE}]\]</span></p>
+<pre><code># Calcula o valor t para o intervalo de confiança de 95%
+t &lt;- qt(0.975, 9)
+
+# Calcula os limites inferior e superior do intervalo de confiança
+LL &lt;- ybrd - t * sqrt(Mse)
+UL &lt;- ybrd + t * sqrt(Mse)</code></pre>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "limite superior e Limite inferior foram:"</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 408.1141</code></pre>
 </div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 347.599</code></pre>
 </div>
-<p>As horas médias de sono em um ano são 380,16 com um erro quadrático médio de 70,05, e um intervalo de confiança de 95% é [376,34, 414,21].</p>
-<!-- Estimating Lichen Biomass and Caribou Grazing on the Wintering Grounds of Northern Québec: An Application of Fire History and Landsat Data -->
-</section>
-<section class="slide level2">
-<h2>outra slide</h2>
-<p>O problema pede para realizar uma amostragem em duas fases para estimar a média de horas de sono por ano em um determinado bloco, utilizando um estimador de regressão.</p>
-<p>Fase 1: Amostragem Aleatória Simples Sem Reposição (SRSWOR): Selecione aleatoriamente 20 unidades (indivíduos) do bloco, sem permitir repetições. Anote apenas a idade de cada indivíduo selecionado nesta fase.</p>
-<p>Utilização da Tabela 6.1: A tabela 6.1, mencionada no enunciado, provavelmente contém a lista completa de indivíduos no bloco e suas respectivas idades. Utilize esta tabela para selecionar aleatoriamente os 20 indivíduos da primeira fase.</p>
-<p>Fase 2: Subamostragem: Dos 20 indivíduos selecionados na Fase 1, selecione aleatoriamente 10 indivíduos, formando uma subamostra. Coleta de Dados Completa: Para cada indivíduo na subamostra, anote tanto a idade quanto as horas de sono.</p>
-<p>Estimativa e Intervalo de Confiança: Estimador de Regressão: Utilize um estimador de regressão para estimar a média de horas de sono por ano para todo o bloco, usando as informações coletadas nas duas fases da amostragem. O estimador de regressão utiliza a relação entre idade e horas de sono observada na subamostra para melhorar a precisão da estimativa.</p>
-<p>Intervalo de Confiança de 95%: Calcule um intervalo de confiança de 95% para a média estimada de horas de sono por ano. Este intervalo fornecerá uma faixa de valores plausíveis para a verdadeira média da população, com 95% de confiança.</p>
-<p>Em resumo, o objetivo é estimar a média de horas de sono por ano em um bloco, utilizando um método de amostragem em duas fases com um estimador de regressão para aumentar a precisão da estimativa.</p>
-</section>
-<section class="slide level2">
-<h2>outro slide</h2>
-<p><span class="math display">\[\hat{y}_{reg}= \bar{y}+\beta(\bar{X}-\bar{x})\]</span> <span class="math display">\[MSE=\left(\dfrac{1}{20}-\dfrac{1}{50}\right)v_y+\left(\dfrac{1}{10}-\dfrac{1}{20}\right)v_y(1-p^2)\]</span> <span class="math display">\[IC = [\hat{y}_{reg}-t\sqrt{MSE},\hat{y}_{reg}+t\sqrt{MSE}]\]</span> Dados Utilizados: Variável Auxiliar (x): Idade Variável de Interesse (y): Número de horas de sono Etapas de Análise: Seleção da amostra inicial (20 unidades) por SRSWOR. Seleção da subamostra (10 unidades) para coleta adicional de dados. Cálculo dos estimadores de regressão. Estimativa da média das horas de sono. Cálculo do intervalo de confiança.</p>
+</div>
+<p>Comparando com agora com o valor populacional</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Média de sono populacional"</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 374.031</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Variância de sono populacional"</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 4426.643</code></pre>
+</div>
+</div>
 </section></section>
 <section class="title-slide slide level1 center">
 <h1>Referências</h1>
