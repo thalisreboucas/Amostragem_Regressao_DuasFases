@@ -65,7 +65,7 @@ Nesse caso, é feita a seleção de uma amostra na primeira fase, onde são sele
 
 **Em Resumo:** 
 
-- Na primeira fase, selecione uma amostra relativamente grande de elementos,$s_1$,coletando informações de baixo custo sobre uma ou mais variáveis auxiliares , essas variáveis auxiliares serão utilizadas para estratificar $s_1$.
+- Na primeira fase, selecione uma amostra relativamente grande de elementos,$s_1$,coletando informações de baixo custo sobre uma ou mais variáveis auxiliares.
 
 - Com o auxílio das informações auxiliares coletadas na primeira fase, selecionamos uma amostra de segunda fase,$s_2$, a partir de $s_1$,utilizando o delineamento $p(.|s_1)$, com isso $s_2$ uma subamostra. A variável de estudo $y$ é então observada para os elementos na amostra da segunda fase.
 
@@ -87,7 +87,7 @@ Para uma amostra $s$ o total será,$\sum_{k \in A}y_k$, se $A \subseteq U$
 **Em Resumo:** 
 
 Para a **primeira fase** teremos uma amostra $s1$ sendo $s1 \subset U$ de tamanho $n$, não fixa, retirada por meio de uma $p_a(s1)$, logo definimos as propabilidades de inclusão como:
-$$\pi_{ak} = \sum_{k \in s}p_a(s1) ,\ \pi_{akl} = \sum_{k \in s}p_a(s1) , $$
+$$\pi_{ak} = \sum_{k \in s1}p_a(s1) ,\ \pi_{akl} = \sum_{k \in s1}p_a(s1) , $$
 Para $\pi_{akk}=\pi_{ak}$. Sendo $\Delta_{akl}=\pi_{akl}-\pi_{ak}\pi_{al}$, assumimos isso para $\pi_{ak}>0 , \forall k$ e para estimação da variânica $$\pi_{akl}>0 , \forall \  k \ne l$$
 
 
@@ -97,7 +97,7 @@ Para $\pi_{akk}=\pi_{ak}$. Sendo $\Delta_{akl}=\pi_{akl}-\pi_{ak}\pi_{al}$, assu
 
 Para a **segunda fase** teremos a amostra inicial $s1$ dada e teremos $s2 \subset s1$ com um tamanho $m$, não fixo, dado por $p(s2|s1)$,logo definimos as propabilidades de inclusão de $s2$ como:
 
-$$\pi_{k|s1} = \sum_{k \in s2}p(s2|s1) ,\ \pi_{kl|s1} = \sum_{kl \in s}p_a(s2|s1) , $$
+$$\pi_{k|s1} = \sum_{k \in s2}p(s2|s1) ,\ \pi_{kl|s1} = \sum_{kl \in s1}p_a(s2|s1) , $$
 Para $\pi_{kk|s1}=\pi_{k|s1}$. Sendo $\Delta_{kl|s1}=\pi_{kl|s1}-\pi_{k|s1}\pi_{l|s1}$, assumimos isso para todo $s1$ $\pi_{k|s1}>0 , \forall \ k \in s1$ e para estimação da variânica $$\pi_{kl|s1}>0 , \forall \  k \ne l \in s1$$
 
 ## Fundamentos da <br> amostragem em Duas Fases:
