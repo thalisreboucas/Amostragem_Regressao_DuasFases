@@ -673,6 +673,6 @@ print('Média de sono populacional');mean(y);print('Variância de sono populacio
 # Referências
 
 - Chapman, Sampling Design and Analysis (Chapman  HallCRC Texts in Statistical Science), 3rd Edition.
-- Raosaheb Latpate, Jayant Kshirsagar , Advanced Sampling Methods (2021).
+
 
 # Obrigado !! 
